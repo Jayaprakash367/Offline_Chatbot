@@ -1,0 +1,219 @@
+{
+    "entries": [
+        {
+            "question": "what is python",
+            "answer": "Python is a high-level programming language. It's easy to learn and read, and is widely used in web development, AI, data science, automation, and more.",
+            "tags": ["python", "programming", "language"]
+        },
+        {
+            "question": "what is AI",
+            "answer": "AI (Artificial Intelligence) is technology that enables computers to think, learn, and make decisions similar to humans. It includes machine learning, deep learning, and natural language processing.",
+            "tags": ["ai", "artificial intelligence", "machine learning"]
+        },
+        {
+            "question": "what is machine learning",
+            "answer": "Machine Learning is a branch of AI where computers learn from data automatically without being explicitly programmed. It's used in recommendations, image recognition, and predictions.",
+            "tags": ["machine learning", "ml", "ai"]
+        },
+        {
+            "question": "what is an operating system",
+            "answer": "An Operating System (OS) is software that manages computer hardware and provides services for programs. Examples include Windows, Linux, and macOS.",
+            "tags": ["os", "operating system", "software"]
+        },
+        {
+            "question": "what is the internet",
+            "answer": "The Internet is a global network that connects computers worldwide, allowing people to share information, communicate, and access services.",
+            "tags": ["internet", "network", "web"]
+        },
+        {
+            "question": "what is cloud computing",
+            "answer": "Cloud Computing provides computing services like storage, servers, and databases over the internet. Examples include AWS, Azure, and Google Cloud.",
+            "tags": ["cloud", "computing", "services"]
+        },
+        {
+            "question": "what is cybersecurity",
+            "answer": "Cybersecurity is the practice of protecting computer systems, networks, and data from attacks, theft, and damage.",
+            "tags": ["cybersecurity", "security", "protection"]
+        },
+        {
+            "question": "what is a database",
+            "answer": "A Database is an organized collection of data that can be easily accessed and managed. Popular databases include MySQL, PostgreSQL, MongoDB, and SQLite.",
+            "tags": ["database", "db", "data"]
+        },
+        {
+            "question": "what is an algorithm",
+            "answer": "An Algorithm is a step-by-step set of instructions designed to solve a specific problem or perform a task.",
+            "tags": ["algorithm", "logic", "programming"]
+        },
+        {
+            "question": "what is HTML",
+            "answer": "HTML (HyperText Markup Language) is the standard markup language used to create and structure web pages.",
+            "tags": ["html", "web", "markup"]
+        },
+        {
+            "question": "what is CSS",
+            "answer": "CSS (Cascading Style Sheets) is a language used to style HTML pages - controlling colors, layouts, fonts, and visual appearance.",
+            "tags": ["css", "style", "web"]
+        },
+        {
+            "question": "what is JavaScript",
+            "answer": "JavaScript is a programming language that makes web pages interactive. It's used in both frontend (browser) and backend (Node.js) development.",
+            "tags": ["javascript", "js", "web", "programming"]
+        },
+        {
+            "question": "what is Java",
+            "answer": "Java is an object-oriented programming language used for Android apps, enterprise applications, and web services. It follows the 'write once, run anywhere' principle.",
+            "tags": ["java", "programming", "oop"]
+        },
+        {
+            "question": "what is a compiler",
+            "answer": "A Compiler is a program that translates high-level programming language code into machine code that a computer can execute.",
+            "tags": ["compiler", "programming", "translation"]
+        },
+        {
+            "question": "what is RAM",
+            "answer": "RAM (Random Access Memory) is a computer's temporary memory. It stores data for currently running programs and is cleared when the computer is turned off.",
+            "tags": ["ram", "memory", "hardware"]
+        },
+        {
+            "question": "what is a CPU",
+            "answer": "The CPU (Central Processing Unit) is the 'brain' of a computer. It processes all calculations and instructions that make programs run.",
+            "tags": ["cpu", "processor", "hardware"]
+        },
+        {
+            "question": "what is a GPU",
+            "answer": "A GPU (Graphics Processing Unit) is a specialized processor for graphics and parallel computing. It's important for gaming, AI training, and video editing.",
+            "tags": ["gpu", "graphics", "processor"]
+        },
+        {
+            "question": "what is an SSD",
+            "answer": "An SSD (Solid State Drive) is a fast storage device with no moving parts. It's much faster than traditional hard drives (HDDs).",
+            "tags": ["ssd", "storage", "drive"]
+        },
+        {
+            "question": "what is a computer virus",
+            "answer": "A computer virus is a malicious program that can damage files, steal data, and spread to other computers. Use antivirus software to stay protected.",
+            "tags": ["virus", "malware", "security"]
+        },
+        {
+            "question": "what is an API",
+            "answer": "An API (Application Programming Interface) is an interface that allows two software applications to communicate with each other and share data.",
+            "tags": ["api", "interface", "software"]
+        },
+        {
+            "question": "what is Git",
+            "answer": "Git is a version control system that tracks code changes and helps teams collaborate on software projects. GitHub and GitLab are popular Git hosting platforms.",
+            "tags": ["git", "version control", "code"]
+        },
+        {
+            "question": "what is deep learning",
+            "answer": "Deep Learning is a subset of machine learning that uses neural networks with many layers to learn complex patterns from large amounts of data.",
+            "tags": ["deep learning", "neural network", "ai"]
+        },
+        {
+            "question": "what is blockchain",
+            "answer": "Blockchain is a distributed ledger technology that stores data in tamper-proof blocks. It's used in cryptocurrency, smart contracts, and supply chain tracking.",
+            "tags": ["blockchain", "crypto", "distributed"]
+        },
+        {
+            "question": "what is Docker",
+            "answer": "Docker is a containerization platform that packages applications into containers, making them easy to run consistently across different environments.",
+            "tags": ["docker", "container", "devops"]
+        },
+        {
+            "question": "what is Linux",
+            "answer": "Linux is a free, open-source operating system. It's widely used in servers, Android phones, IoT devices, and cloud computing.",
+            "tags": ["linux", "os", "open source"]
+        },
+        {
+            "question": "what is Windows",
+            "answer": "Windows is a popular operating system developed by Microsoft. It's the most commonly used OS on desktop and laptop computers.",
+            "tags": ["windows", "microsoft", "os"]
+        },
+        {
+            "question": "what is React",
+            "answer": "React is a JavaScript library created by Facebook for building user interfaces. It uses a component-based architecture and virtual DOM.",
+            "tags": ["react", "javascript", "frontend", "ui"]
+        },
+        {
+            "question": "what is Node.js",
+            "answer": "Node.js is a JavaScript runtime environment that lets you run JavaScript on the server side. It's great for building fast, scalable web applications.",
+            "tags": ["nodejs", "node", "javascript", "backend"]
+        },
+        {
+            "question": "what is SQL",
+            "answer": "SQL (Structured Query Language) is a language used to manage and query databases. Common commands include SELECT, INSERT, UPDATE, and DELETE.",
+            "tags": ["sql", "database", "query"]
+        },
+        {
+            "question": "what is a REST API",
+            "answer": "A REST API is an architectural style for web services that uses HTTP methods (GET, POST, PUT, DELETE) to exchange data between applications.",
+            "tags": ["rest", "api", "web"]
+        },
+        {
+            "question": "what is a VPN",
+            "answer": "A VPN (Virtual Private Network) encrypts your internet connection to enhance privacy and security, hiding your online activity from others.",
+            "tags": ["vpn", "privacy", "security"]
+        },
+        {
+            "question": "what is WiFi",
+            "answer": "WiFi is wireless networking technology that allows devices to connect to the internet without physical cables.",
+            "tags": ["wifi", "wireless", "network"]
+        },
+        {
+            "question": "what is Tamil",
+            "answer": "Tamil is one of the world's oldest languages, over 2000 years old. It's spoken in Tamil Nadu (India), Sri Lanka, Singapore, and by communities worldwide.",
+            "tags": ["tamil", "language", "culture"]
+        },
+        {
+            "question": "what is Thirukkural",
+            "answer": "Thirukkural is a classic Tamil text written by Thiruvalluvar. It contains 1330 couplets organized into three sections: Virtue, Wealth, and Love.",
+            "tags": ["thirukkural", "literature", "tamil"]
+        },
+        {
+            "question": "who is Bharathiyar",
+            "answer": "Subramania Bharati (Bharathiyar) was a famous Tamil poet and freedom fighter who played a key role in India's independence movement.",
+            "tags": ["bharathiyar", "poet", "freedom fighter"]
+        },
+        {
+            "question": "what is photosynthesis",
+            "answer": "Photosynthesis is the process by which plants use sunlight to convert carbon dioxide and water into glucose and oxygen.",
+            "tags": ["photosynthesis", "biology", "plants"]
+        },
+        {
+            "question": "what is gravity",
+            "answer": "Gravity is a force that attracts objects with mass toward each other. Isaac Newton was the first to describe the laws of gravity.",
+            "tags": ["gravity", "physics", "force"]
+        },
+        {
+            "question": "what is DNA",
+            "answer": "DNA (Deoxyribonucleic Acid) is a molecule that carries genetic information in all living things. It determines traits like eye color, height, and more.",
+            "tags": ["dna", "genetics", "biology"]
+        },
+        {
+            "question": "what is the solar system",
+            "answer": "The Solar System consists of the Sun and 8 planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.",
+            "tags": ["solar system", "planets", "space"]
+        },
+        {
+            "question": "what is Bitcoin",
+            "answer": "Bitcoin is a decentralized digital cryptocurrency created in 2009 by Satoshi Nakamoto. It operates on blockchain technology.",
+            "tags": ["bitcoin", "crypto", "cryptocurrency"]
+        },
+        {
+            "question": "what is ChatGPT",
+            "answer": "ChatGPT is an AI chatbot created by OpenAI. It uses Large Language Model (LLM) technology to have human-like conversations.",
+            "tags": ["chatgpt", "openai", "llm", "chatbot"]
+        },
+        {
+            "question": "what is 5G",
+            "answer": "5G is the 5th generation mobile network technology. It's up to 100 times faster than 4G, with very low latency and high bandwidth.",
+            "tags": ["5g", "mobile", "network"]
+        },
+        {
+            "question": "what is IoT",
+            "answer": "IoT (Internet of Things) connects physical devices to the internet. Examples include smart home devices, wearables, and industrial sensors.",
+            "tags": ["iot", "smart", "devices"]
+        }
+    ]
+}

@@ -1,0 +1,260 @@
+{
+    "user_name": "--text",
+    "conversation_count": 83,
+    "history": [],
+    "emotions": [],
+    "facts": {},
+    "conversation_history": [
+        {
+            "timestamp": "2026-02-08T13:47:07.394180",
+            "user": "open the vs code",
+            "ai": "vs code is launching."
+        },
+        {
+            "timestamp": "2026-02-08T13:47:32.832133",
+            "user": "open browser type youtube",
+            "ai": "I don't have a response for 'open_app_fail' right now."
+        },
+        {
+            "timestamp": "2026-02-08T13:50:40.527281",
+            "user": "huh",
+            "ai": "Last response: I don't have a response for 'open_app_fail' right now."
+        },
+        {
+            "timestamp": "2026-02-08T13:51:12.181916",
+            "user": "huh",
+            "ai": "Last response: Last response: I don't have a response for 'open_app_fail' right now."
+        },
+        {
+            "timestamp": "2026-02-08T13:51:27.687995",
+            "user": "huh",
+            "ai": "Last response: Last response: Last response: I don't have a response for 'open_app_fail' right now."
+        },
+        {
+            "timestamp": "2026-02-08T13:51:40.833530",
+            "user": "huh",
+            "ai": "Last response: Last response: Last response: Last response: I don't have a response for 'open_app_fail' right now."
+        },
+        {
+            "timestamp": "2026-02-08T13:52:13.011680",
+            "user": "huh",
+            "ai": "Last response: Last response: Last response: Last response: Last response: I don't have a response for 'open_app_fail' right now."
+        },
+        {
+            "timestamp": "2026-02-08T13:52:28.162378",
+            "user": "huh",
+            "ai": "Last response: Last response: Last response: Last response: Last response: Last response: I don't have a response for 'open_app_fail' right now."
+        },
+        {
+            "timestamp": "2026-02-08T13:52:48.602935",
+            "user": "how it's been popular media",
+            "ai": "Are you okay? How do you feel?"
+        },
+        {
+            "timestamp": "2026-02-08T13:53:24.574741",
+            "user": "huh",
+            "ai": "Last response: Are you okay? How do you feel?"
+        },
+        {
+            "timestamp": "2026-02-08T13:53:39.896492",
+            "user": "huh",
+            "ai": "Last response: Last response: Are you okay? How do you feel?"
+        },
+        {
+            "timestamp": "2026-02-08T13:53:52.653829",
+            "user": "he's",
+            "ai": "Sorry, I didn't understand that. Can you rephrase?"
+        },
+        {
+            "timestamp": "2026-02-08T13:56:02.840966",
+            "user": "what was going to the some ass",
+            "ai": "Last response: Sorry, I didn't understand that. Can you rephrase?"
+        },
+        {
+            "timestamp": "2026-02-08T13:56:06.108407",
+            "user": "ah",
+            "ai": "It's my pleasure to assist you."
+        },
+        {
+            "timestamp": "2026-02-08T13:56:21.421370",
+            "user": "huh",
+            "ai": "Last response: It's my pleasure to assist you."
+        },
+        {
+            "timestamp": "2026-02-08T20:20:19.371679",
+            "user": "hello",
+            "ai": "Hey jayaprakash! வணக்கம்! நான் உங்களுக்கு எப்படி உதவ முடியும்?"
+        },
+        {
+            "timestamp": "2026-02-08T20:20:33.755189",
+            "user": "open vs code",
+            "ai": "vs code ready! வேற ஏதாவது?"
+        },
+        {
+            "timestamp": "2026-02-08T20:20:58.491383",
+            "user": "open vs code click the copilot",
+            "ai": "vs code open ஆகிவிட்டது!"
+        },
+        {
+            "timestamp": "2026-02-08T20:21:15.667583",
+            "user": "fewff",
+            "ai": "மன்னிக்கவும், எனக்கு புரியல. வேற மாதிரி சொல்லுங்க."
+        },
+        {
+            "timestamp": "2026-02-08T20:21:27.687942",
+            "user": "open whatsapp",
+            "ai": "whatsapp திறக்க முடியல. 'help' type பண்ணி available apps பாருங்க."
+        },
+        {
+            "timestamp": "2026-02-08T20:21:32.880765",
+            "user": "help",
+            "ai": "சொல்லுங்க! App open/close, system check, jokes, Q&A - எல்லாம் செய்வேன்.\nTamil, Tanglish, English - எந்த language-லும் type பண்ணலாம்."
+        },
+        {
+            "timestamp": "2026-02-08T20:21:41.061287",
+            "user": "jokes",
+            "ai": "Computer-க்கு cold ஆச்சு ஏன்? Windows open வச்சிருந்தாங்க!"
+        },
+        {
+            "timestamp": "2026-02-08T20:22:09.828904",
+            "user": "change language in english",
+            "ai": "Language change தேவையில்ல! நான் Tamil-லும் English-லும் respond பண்றேன்."
+        },
+        {
+            "timestamp": "2026-02-08T20:22:28.295780",
+            "user": "English response",
+            "ai": "நான் Tamil, Tanglish, English எல்லாமே புரிஞ்சுக்குவேன்! எந்த language-லும் type பண்ணலாம்."
+        },
+        {
+            "timestamp": "2026-02-08T20:27:44.883928",
+            "user": "cd c:\\Users\\jayaprakash.k\\OneDrive\\Documents\\Ai\\OfflineAI && python main.py --text",
+            "ai": "Hmm, புரியலையே. Different-ஆ கேளுங்க."
+        },
+        {
+            "timestamp": "2026-02-08T20:28:23.694426",
+            "user": "cd c:\\Users\\jayaprakash.k\\OneDrive\\Documents\\Ai\\OfflineAI && python main.py --text",
+            "ai": "Sorry, புரியல. தமிழ்ல அல்லது English-ல try பண்ணுங்க."
+        },
+        {
+            "timestamp": "2026-02-08T20:30:22.246376",
+            "user": "taskkill /F /IM python.exe 2>nul; cd c:\\Users\\jayaprakash.k\\OneDrive\\Documents\\Ai\\OfflineAI && python main.py --text",
+            "ai": "வணக்கம் --text! உங்களை சந்திக்க மகிழ்ச்சி!"
+        },
+        {
+            "timestamp": "2026-02-08T20:31:39.704847",
+            "user": "open vs code",
+            "ai": "Started vs code for you."
+        },
+        {
+            "timestamp": "2026-02-08T20:32:10.654182",
+            "user": "weaponry a sport",
+            "ai": "Sorry, I didn't understand that. Can you rephrase?"
+        },
+        {
+            "timestamp": "2026-02-08T20:32:17.742636",
+            "user": "but when he is book",
+            "ai": "Sorry, I didn't understand that. Can you rephrase?"
+        },
+        {
+            "timestamp": "2026-02-08T20:32:32.604150",
+            "user": "the be",
+            "ai": "If you're happy, I'm happy!"
+        },
+        {
+            "timestamp": "2026-02-08T20:36:39.554928",
+            "user": "huh",
+            "ai": "Last response: If you're happy, I'm happy!"
+        },
+        {
+            "timestamp": "2026-02-12T21:09:12.543214",
+            "user": "hello",
+            "ai": "Hey --text! Welcome! What's up?"
+        },
+        {
+            "timestamp": "2026-02-12T21:09:24.886972",
+            "user": "open Whatsapp app",
+            "ai": "whatsapp app is not available or not installed."
+        },
+        {
+            "timestamp": "2026-02-12T21:09:39.989295",
+            "user": "open the vs code",
+            "ai": "Started vs code for you."
+        },
+        {
+            "timestamp": "2026-02-12T21:09:57.205158",
+            "user": "good morning",
+            "ai": "Hey --text! Hi! I'm ready to help!"
+        },
+        {
+            "timestamp": "2026-02-12T21:10:13.188860",
+            "user": "you teach how i speak",
+            "ai": "Hey --text! Hello! How are you?"
+        },
+        {
+            "timestamp": "2026-02-12T21:43:22.087552",
+            "user": "hello",
+            "ai": "Hey --text! Welcome! What's up?"
+        },
+        {
+            "timestamp": "2026-02-19T18:29:15.450088",
+            "user": "hello",
+            "ai": "Hi there, --text! What can I do for you?"
+        },
+        {
+            "timestamp": "2026-02-19T18:30:54.295078",
+            "user": "open vs code",
+            "ai": "Done! Opening vs code for you."
+        },
+        {
+            "timestamp": "2026-02-19T18:31:11.140362",
+            "user": "hello tell any story",
+            "ai": "Hello, --text! How can I help you today?"
+        },
+        {
+            "timestamp": "2026-02-19T18:33:02.157206",
+            "user": "what is my name",
+            "ai": "RAM (Random Access Memory) is a computer's temporary memory. It stores data for currently running programs and is cleared when the computer is turned off."
+        },
+        {
+            "timestamp": "2026-02-19T18:33:23.155264",
+            "user": "ok your name",
+            "ai": "Hey, --text! Good to see you. What do you need?"
+        },
+        {
+            "timestamp": "2026-02-19T18:33:30.824034",
+            "user": "none",
+            "ai": "I'm still learning! Could you try rephrasing that for me?"
+        },
+        {
+            "timestamp": "2026-02-19T18:33:37.271743",
+            "user": "ok",
+            "ai": "Bye! It was nice chatting with you."
+        },
+        {
+            "timestamp": "2026-02-19T18:33:42.623605",
+            "user": "ok bye",
+            "ai": "See you later! Take care!"
+        },
+        {
+            "timestamp": "2026-02-19T18:33:45.780096",
+            "user": "ok",
+            "ai": "Goodbye! Have a wonderful day!"
+        },
+        {
+            "timestamp": "2026-02-19T18:33:48.424385",
+            "user": "ok",
+            "ai": "See you later! Take care!"
+        },
+        {
+            "timestamp": "2026-03-01T15:41:10.078729",
+            "user": "hi",
+            "ai": "Hello, --text! Ready to help. What do you need?"
+        },
+        {
+            "timestamp": "2026-03-01T15:48:36.563733",
+            "user": "hello",
+            "ai": "Welcome back, --text! What's on your mind?"
+        }
+    ],
+    "last_active": "2026-03-01T15:48:36.565067"
+}

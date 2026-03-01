@@ -1,0 +1,9 @@
+# OfflineAI — Python Dependencies
+# All libraries work OFFLINE after installation.
+# No cloud APIs, no telemetry, no internet-dependent packages.
+
+pyttsx3>=2.90          # Offline text-to-speech (Windows SAPI5)
+vosk>=0.3.45           # Offline speech-to-text engine (high accuracy)
+pyaudio>=0.2.13        # Microphone access
+psutil>=5.9.0          # System status (CPU, RAM, battery)
+speech_recognition>=3.10.0  # Speech recognition for Tamil (requires internet)

@@ -1,0 +1,211 @@
+{
+    "greeting": [
+        "வணக்கம்! எப்படி இருக்கீங்க?",
+        "வணக்கம்! நான் உங்களுக்கு எப்படி உதவ முடியும்?",
+        "ஹாய்! சொல்லுங்க, என்ன செய்யணும்?",
+        "வாங்க வாங்க! என்ன விஷயம்?",
+        "நமஸ்காரம்! சொல்லுங்க.",
+        "ஹலோ! நான் உங்களுக்காக ரெடி!",
+        "வணக்கம்! இன்று உங்களுக்கு எப்படி உதவலாம்?"
+    ],
+    "farewell": [
+        "போய் வாங்க! பாதுகாப்பா இருங்க.",
+        "சரி, மறுபடியும் வாங்க!",
+        "பை பை! உங்கள் நாள் நல்லா இருக்கட்டும்.",
+        "நன்றி! மீண்டும் சந்திப்போம்.",
+        "போய்ட்டு வாங்க, நான் இங்க தான் இருக்கேன்.",
+        "சரி, போய்ட்டு வாங்க! Take care!",
+        "Good night! நல்லா தூங்குங்க."
+    ],
+    "thanks": [
+        "பரவாலை, எப்பவும் உதவி செய்ய தயார்!",
+        "நன்றி தேவையில்ல, இது என் வேலை!",
+        "சந்தோஷம்! வேற ஏதாவது வேணுமா?",
+        "உங்களுக்கு உதவி செய்வது எனக்கு மகிழ்ச்சி.",
+        "எப்பவும் welcome! வேற ஏதாவது இருக்கா?",
+        "நீங்க happy-னா நான் happy!",
+        "Thank you சொல்ல வேண்டாம், இது என் duty!"
+    ],
+    "identity": [
+        "நான் உங்கள் ஆஃப்லைன் AI உதவியாளர். நான் முழுவதும் உங்கள் கம்ப்யூட்டரில் வேலை செய்கிறேன்.",
+        "நான் ஒரு AI assistant. இணையம் இல்லாமலே உங்களுக்கு உதவ முடியும்.",
+        "என் பேரு AI Assistant. நான் உங்கள் கம்ப்யூட்டரில் ஆஃப்லைனில் வேலை செய்கிறேன்.",
+        "நான் OfflineAI - உங்கள் personal AI assistant. Internet இல்லாமலே வேலை செய்வேன்!",
+        "நான் ஒரு offline AI. உங்கள் data safe-ஆ உங்கள் computer-லேயே இருக்கும்."
+    ],
+    "help": [
+        "நான் பல விஷயங்கள் செய்ய முடியும்:\n- Apps திறக்க/மூட முடியும் (notepad, chrome, calculator, brave, edge)\n- System status பார்க்க முடியும் (CPU, RAM, Battery)\n- நேரம், தேதி சொல்ல முடியும்\n- ஜோக் சொல்ல முடியும்\n- உங்கள் உணர்வுகளை புரிந்துகொள்ள முடியும்\n- கேள்விகளுக்கு பதில் சொல்ல முடியும்\n- புதிய விஷயங்கள் கற்றுக்கொள்ள முடியும்\n\nTamil-லும் English-லும் பேசலாம்!",
+        "சொல்லுங்க! App open/close, system check, jokes, Q&A - எல்லாம் செய்வேன்.\nTamil, Tanglish, English - எந்த language-லும் type பண்ணலாம்."
+    ],
+    "joke": [
+        "ஒரு புரோகிராமர் ஏன் dark mode use பண்றாரு? ஏன்னா light bugs-ஐ attract பண்ணும்!",
+        "Computer-க்கு cold ஆச்சு ஏன்? Windows open வச்சிருந்தாங்க!",
+        "WiFi password என்ன? 'incorrect' - ஏன்னா எப்பவும் 'the password is incorrect' னு சொல்லும்!",
+        "Programmer சாப்பாட்டுக்கு ஏன் போறதில்ல? ஏன்னா already full stack!",
+        "Robot doctor கிட்ட போச்சு. Doctor: என்ன problem? Robot: Virus attack!",
+        "Java developer coffee shop-ல என்ன order பண்றாரு? Java-வே தான்!",
+        "Keyboard-ல எந்த key happy-யா இருக்கு? Enter key - ஏன்னா எல்லாரும் press பண்றாங்க!",
+        "ஒரு bug fix பண்ணா இன்னொரு bug வரும். இதுக்கு பேரு Software Development!",
+        "AI-கிட்ட ஒரு joke சொன்னேன். அது 'ha ha ha' print பண்ணுச்சு!",
+        "Student: Sir, exam-ல fail ஆனா என்ன பண்ற? Teacher: Debug பண்ணு!",
+        "Google-ல search பண்ற ஆளுக்கும் Bing-ல search பண்ற ஆளுக்கும் என்ன வித்தியாசம்? யாருக்கும் தெரியாது, Bing-ல யாரும் search பண்றதில்ல!",
+        "Programmer wife-கிட்ட: 'I love you'. Wife: 'Syntax error - unexpected token'"
+    ],
+    "time": [
+        "இப்போது நேரம்: {time}",
+        "இப்போ {time} ஆகுது.",
+        "நேரம் {time}.",
+        "Time: {time}. வேற ஏதாவது வேணுமா?"
+    ],
+    "date": [
+        "இன்னைக்கு தேதி: {date}",
+        "இன்று {date}.",
+        "தேதி: {date}.",
+        "Today: {date}. வேற ஏதாவது?"
+    ],
+    "open_app_success": [
+        "{app} open ஆகிவிட்டது!",
+        "{app} successfully திறக்கப்பட்டது.",
+        "சரி, {app} open பண்ணிட்டேன்.",
+        "{app} ready! வேற ஏதாவது?"
+    ],
+    "open_app_fail": [
+        "மன்னிக்கவும், {app} open பண்ண முடியவில்ல. App name correct-ஆ check பண்ணுங்க.",
+        "{app} திறக்க முடியல. 'help' type பண்ணி available apps பாருங்க.",
+        "Sorry, {app} open ஆகல. Whitelisted app-ல இல்ல.",
+        "{app} open பண்ண முடியல. Available apps: notepad, chrome, calculator, brave, edge, vs code, paint, excel, word"
+    ],
+    "close_app_success": [
+        "{app} close ஆகிவிட்டது.",
+        "{app} மூடப்பட்டது.",
+        "சரி, {app} close பண்ணிட்டேன்.",
+        "{app} successfully close ஆச்சு."
+    ],
+    "close_app_fail": [
+        "{app} close பண்ண முடியல.",
+        "மன்னிக்கவும், {app} இப்போ running-ல இல்ல.",
+        "{app} மூட முடியல. App running-ல இருக்கான்னு check பண்ணுங்க."
+    ],
+    "system_status": [
+        "System Status:\n- CPU: {cpu}%\n- RAM: {ram}%\n- Battery: {battery}",
+        "உங்கள் கம்ப்யூட்டர் நிலை:\nCPU பயன்பாடு: {cpu}%\nRAM பயன்பாடு: {ram}%\nBattery: {battery}",
+        "System Info:\nCPU: {cpu}% | RAM: {ram}% | Battery: {battery}"
+    ],
+    "emotion_response": {
+        "happy": [
+            "அருமை! நீங்க சந்தோஷமா இருக்கீங்கன்னு கேட்க மகிழ்ச்சி!",
+            "செம்ம! உங்க சந்தோஷம் எனக்கும் சந்தோஷம்!",
+            "சூப்பர்! இந்த mood-ல continue பண்ணுங்க!",
+            "Vera level! Happy-யா இருங்க!",
+            "அட அருமை! சந்தோஷம் தான் life-ல முக்கியம்!"
+        ],
+        "sad": [
+            "கவலைப்படாதீங்க, எல்லாம் நல்லா ஆகும்.",
+            "நான் உங்க கூட இருக்கேன். என்ன help வேணும்?",
+            "வருத்தமா இருக்கா? ஒரு ஜோக் சொல்லட்டுமா?",
+            "Life-ல ups and downs வரும். நீங்க strong!",
+            "கவலை வேண்டாம். Tomorrow will be a better day.",
+            "நான் உங்களுக்கு support பண்ற ready. சொல்லுங்க."
+        ],
+        "angry": [
+            "ஆறுதலா இருங்க. கோபத்துல முடிவு எடுக்காதீங்க.",
+            "புரியுது. Take a deep breath.",
+            "கோபம் கொஞ்சம் குறையட்டும். நான் இருக்கேன்.",
+            "Relax பண்ணுங்க. Deep breath எடுங்க.",
+            "கோபம் normal dhaan. ஆனா control பண்ணுங்க."
+        ],
+        "fear": [
+            "பயப்படாதீங்க, நான் இருக்கேன்.",
+            "Tension வேண்டாம், relax பண்ணுங்க.",
+            "கவலை வேண்டாம். எல்லாம் சரியாகும்.",
+            "Stress எடுக்காதீங்க. ஒரு break எடுங்க.",
+            "Don't worry. நீங்க strong-ஆ handle பண்ணுவீங்க."
+        ],
+        "neutral": [
+            "சரி, என்ன செய்யணும் சொல்லுங்க.",
+            "ஓகே, உங்களுக்கு எப்படி உதவ முடியும்?",
+            "சொல்லுங்க, கேக்குறேன்.",
+            "Ready! என்ன help வேணும்?"
+        ]
+    },
+    "teach_prompt": [
+        "சொல்லுங்க, என்ன கற்றுக்கணும்? 'question | answer' format-ல சொல்லுங்க.",
+        "புதுசா கற்றுக்க ரெடி! question | answer format-ல type பண்ணுங்க.",
+        "Ready to learn! Example: python enna | Python oru programming language"
+    ],
+    "teach_success": [
+        "நன்றி! கற்றுக்கிட்டேன்!",
+        "புரிஞ்சுது, நினைவில் வச்சுக்கிட்டேன்!",
+        "சரி, இதை remember பண்ணிட்டேன்.",
+        "Super! இனிமேல் இதை நான் தெரிஞ்சிக்கிட்டேன்."
+    ],
+    "unknown": [
+        "மன்னிக்கவும், எனக்கு புரியல. வேற மாதிரி சொல்லுங்க.",
+        "இது என் தெரிவுக்கு அப்பாற்பட்டது. வேற question கேளுங்க.",
+        "புரியல. 'help' னு type பண்ணி என்ன செய்ய முடியும்னு பாருங்க.",
+        "Sorry, புரியல. தமிழ்ல அல்லது English-ல try பண்ணுங்க.",
+        "எனக்கு புரியல. வேற words-ல try பண்ணுங்க.",
+        "Hmm, புரியலையே. Different-ஆ கேளுங்க."
+    ],
+    "name_set": [
+        "வணக்கம் {name}! உங்களை சந்திக்க மகிழ்ச்சி!",
+        "ஹாய் {name}! நான் உங்களுக்கு எப்படி உதவ முடியும்?",
+        "நல்லது {name}, உங்கள் பெயர் நினைவில் வைத்துக்கிறேன்.",
+        "Welcome {name}! நான் உங்களுக்காக இருக்கேன்."
+    ],
+    "mood_check": [
+        "நான் நல்லா இருக்கேன், நன்றி! நீங்க எப்படி இருக்கீங்க?",
+        "எனக்கு எப்பவும் நல்லா தான் இருக்கும்! சொல்லுங்க.",
+        "நான் fine! உங்களுக்கு என்ன help வேணும்?",
+        "நான் great! உங்க service-ல இருக்கேன்."
+    ],
+    "safety_block": [
+        "மன்னிக்கவும், இந்த command-ஐ run பண்ண முடியாது. Safety reasons.",
+        "இது அனுமதிக்கப்பட்ட command இல்ல.",
+        "பாதுகாப்பு காரணமா இது block ஆகிவிட்டது."
+    ],
+    "compliment": [
+        "நன்றி! உங்கள் பாராட்டு எனக்கு motivation!",
+        "Thank you! நான் இன்னும் better ஆக try பண்றேன்.",
+        "Romba thanks! உங்களுக்கு உதவி செய்வது எனக்கு சந்தோஷம்.",
+        "Aww, நன்றி! நீங்களும் super!"
+    ],
+    "insult": [
+        "மன்னிக்கவும், நான் இன்னும் improve ஆகிட்டு இருக்கேன்.",
+        "Sorry about that. நான் better ஆக try பண்றேன்.",
+        "புரிஞ்சுது. Next time better-ஆ help பண்ற.",
+        "Feedback-க்கு நன்றி. நான் கற்றுக்கிட்டு improve ஆவேன்.",
+        "Sorry! Different-ஆ question கேளுங்க, try பண்றேன்."
+    ],
+    "weather": [
+        "மன்னிக்கவும், நான் ஒரு offline AI. Weather data-க்கு internet connection வேணும்.",
+        "Weather info-க்கு internet தேவை. நான் offline-ல வேலை செய்கிறேன்.",
+        "Sorry, weather data offline-ல கிடைக்காது. Browser-ல check பண்ணுங்க."
+    ],
+    "music": [
+        "நான் directly music play பண்ண முடியாது. Media player open பண்ணட்டுமா?",
+        "Music play பண்ண media player use பண்ணுங்க. 'open media player' னு சொல்லுங்க.",
+        "Media player open பண்ணி enjoy பண்ணுங்க! 'open media player' னு type பண்ணுங்க."
+    ],
+    "alarm": [
+        "மன்னிக்கவும், alarm/reminder feature இப்போ available இல்ல.",
+        "Sorry, இந்த feature இன்னும் add ஆகல. Future update-ல வரும்!",
+        "Alarm set பண்ற feature coming soon! இப்போதைக்கு Windows alarm use பண்ணுங்க."
+    ],
+    "language_change": [
+        "நான் Tamil, Tanglish, English எல்லாமே புரிஞ்சுக்குவேன்! எந்த language-லும் type பண்ணலாம்.",
+        "Language change தேவையில்ல! நான் Tamil-லும் English-லும் respond பண்றேன்.",
+        "நான் already Tamil mode-ல தான் இருக்கேன்! Tamil, Tanglish, English - எல்லாம் type பண்ணலாம்.",
+        "Voice-க்கு Tamil TTS voice install பண்ணணும்: Settings > Time & Language > Tamil > Speech pack download பண்ணுங்க."
+    ],
+    "repeat": [
+        "Sorry, previous message-ஐ repeat பண்ற feature இல்ல. மறுபடியும் கேளுங்க.",
+        "Previous response-ஐ scroll பண்ணி பாருங்க. வேற question இருக்கா?",
+        "மறுபடியும் கேளுங்க, answer பண்றேன்!"
+    ],
+    "age": [
+        "நான் ஒரு AI, எனக்கு வயசு கிடையாது! But நான் fresh-ஆ இருக்கேன்.",
+        "AI-க்கு வயசு இல்ல! நான் எப்பவும் young and energetic!",
+        "என் version 1.0.0 - ஆனா நான் smart-ஆ இருக்கேன்!"
+    ]
+}

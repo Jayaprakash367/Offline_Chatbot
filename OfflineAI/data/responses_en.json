@@ -1,0 +1,183 @@
+{
+  "greeting": [
+    "Hello! How can I help you today?",
+    "Hi there! What can I do for you?",
+    "Hey! Good to see you. What do you need?",
+    "Welcome back! What's on your mind?",
+    "Hello! Ready to help. What do you need?",
+    "Hi! How's it going? What can I do for you?",
+    "Hey! I'm all ears. What would you like?"
+  ],
+  "farewell": [
+    "Goodbye! Have a wonderful day!",
+    "See you later! Take care!",
+    "Bye! It was nice chatting with you.",
+    "Take care! Come back anytime.",
+    "Goodbye! Stay awesome!",
+    "See you next time! Have a great one!",
+    "Bye for now! I'll be here whenever you need me."
+  ],
+  "thanks": [
+    "You're welcome! Happy to help.",
+    "No problem at all! Anything else I can do?",
+    "Glad I could help! Let me know if you need more.",
+    "My pleasure! That's what I'm here for.",
+    "Anytime! Don't hesitate to ask again.",
+    "You're welcome! Need anything else?",
+    "Happy to assist! What's next?"
+  ],
+  "identity": [
+    "I'm your offline AI assistant. I run completely on your computer with no internet needed. Your data stays private and secure!",
+    "I'm OfflineAI, your personal assistant. Everything I do happens locally on your machine - no cloud, no internet, fully private.",
+    "I'm an AI assistant built to work offline. I can open apps, tell jokes, answer questions, check your system, and much more!",
+    "I'm your local AI helper. I work without internet, so your conversations and data never leave your computer."
+  ],
+  "help": [
+    "Here's what I can do for you:\n\n- Open & close apps (notepad, chrome, brave, edge, calculator, etc.)\n- Check system status (CPU, RAM, battery)\n- Tell you the time and date\n- Tell jokes and fun facts\n- Answer knowledge questions\n- Understand your emotions\n- Learn new things you teach me\n\nJust ask naturally, like 'open notepad' or 'tell me a joke'!",
+    "I'm your all-in-one offline assistant! Try these:\n- 'open chrome' - launch apps\n- 'system status' - check CPU/RAM\n- 'what time is it' - get current time\n- 'tell me a joke' - have some fun\n- 'what is python' - ask questions\n- 'teach' - teach me something new"
+  ],
+  "joke": [
+    "Why do programmers prefer dark mode? Because light attracts bugs!",
+    "Why was the computer cold? It left its Windows open!",
+    "What's the WiFi password? 'incorrect' - because it always says 'the password is incorrect'!",
+    "Why don't programmers go out to eat? They already have a full stack!",
+    "A robot went to the doctor. Doctor: What's the problem? Robot: I caught a virus!",
+    "What do Java developers order at a coffee shop? Java, obviously!",
+    "Which keyboard key is the happiest? The Enter key - everyone presses it!",
+    "Fix one bug, two more appear. That's called Software Development!",
+    "I told an AI a joke. It responded: 'ha ha ha' - literally printed it!",
+    "Why did the developer quit? Because he didn't get arrays! (a raise)",
+    "There are 10 types of people: those who understand binary, and those who don't.",
+    "A SQL query walks into a bar and sees two tables. It asks: 'Can I JOIN you?'"
+  ],
+  "time": [
+    "It's currently {time}.",
+    "The time right now is {time}.",
+    "Right now it's {time}."
+  ],
+  "date": [
+    "Today is {date}.",
+    "The current date is {date}.",
+    "Today's date is {date}."
+  ],
+  "open_app_success": [
+    "Done! Opening {app} for you.",
+    "{app} is now launching.",
+    "Got it! {app} is starting up.",
+    "Opening {app} right away!",
+    "There you go! {app} is running."
+  ],
+  "open_app_fail": [
+    "Sorry, I couldn't open '{app}'. It might not be installed on your system.",
+    "'{app}' isn't available or isn't in my allowed apps list. Try 'help' to see what I can open.",
+    "I can't find '{app}'. Make sure it's installed, or try a different name.",
+    "Hmm, '{app}' doesn't seem to be available. Type 'help' to see available apps."
+  ],
+  "close_app_success": [
+    "Done! {app} has been closed.",
+    "{app} is now closed.",
+    "Alright, I've shut down {app} for you.",
+    "Closed {app}. Anything else?"
+  ],
+  "close_app_fail": [
+    "Couldn't close {app}. It might not be running right now.",
+    "{app} doesn't seem to be open at the moment.",
+    "I can't close {app}. Is it currently running?",
+    "Unable to close {app}. It may already be closed."
+  ],
+  "system_status": [
+    "Here's your system status:\n  CPU Usage: {cpu}%\n  RAM Usage: {ram}%\n  Battery: {battery}"
+  ],
+  "emotion_response": {
+    "happy": [
+      "That's great to hear! I'm glad you're in a good mood!",
+      "Awesome! Your positivity is wonderful!",
+      "Nice! Keep that great energy going!"
+    ],
+    "sad": [
+      "I'm sorry to hear that. Is there anything I can do to help cheer you up?",
+      "That sounds tough. Remember, it's okay to have bad days. Would a joke help?",
+      "I understand. I'm here if you want to talk or need a distraction."
+    ],
+    "angry": [
+      "I can tell you're frustrated. Take a deep breath - I'm here to help.",
+      "I understand you're upset. Let me know how I can make things better.",
+      "It's okay to feel angry. Want to talk about it, or shall we move on?"
+    ],
+    "fear": [
+      "Don't worry, everything will be fine. I'm here to help you.",
+      "It's natural to feel uncertain sometimes. What can I do to help?",
+      "I understand your concern. Let's work through this together."
+    ],
+    "neutral": [
+      "I'm here and ready to help. What do you need?",
+      "What's on your mind? I'm listening.",
+      "How can I assist you?"
+    ]
+  },
+  "teach_prompt": [
+    "Sure, I'd love to learn! Tell me in this format:\n  question | answer\nFor example: 'What is AI | AI stands for Artificial Intelligence'"
+  ],
+  "teach_success": [
+    "Got it! I've learned something new. Thanks for teaching me!",
+    "Noted! I'll remember that. Thank you!",
+    "Thanks for sharing! I've added that to my knowledge."
+  ],
+  "unknown": [
+    "I'm not sure I understand. Could you try saying it differently?",
+    "Hmm, I didn't get that. Can you rephrase?",
+    "Sorry, I'm not sure what you mean. Try asking in a simpler way.",
+    "I didn't quite catch that. Could you say it another way?",
+    "I'm still learning! Could you try rephrasing that for me?"
+  ],
+  "name_set": [
+    "Nice to meet you, {name}! How can I help?",
+    "Great name! Hello {name}, I'm happy to work with you.",
+    "Welcome, {name}! What would you like me to do?"
+  ],
+  "mood_check": [
+    "I'm doing great, thanks for asking! How about you?",
+    "I'm running smoothly! How are you feeling today?",
+    "All good on my end! How can I help you?"
+  ],
+  "safety_block": [
+    "I can't help with that request. Let's try something else!",
+    "That's outside what I can do. How about asking me something different?",
+    "Sorry, I'm not able to assist with that. What else can I help with?"
+  ],
+  "compliment": [
+    "Thank you so much! That really means a lot!",
+    "Aww, that's so kind of you! You're pretty amazing yourself!",
+    "I appreciate that! You just made my circuits happy!"
+  ],
+  "insult": [
+    "Ouch! But I'll keep trying my best to help you.",
+    "That hurts a bit, but I understand. How can I do better?",
+    "I'm sorry you feel that way. I'm always working to improve!"
+  ],
+  "weather": [
+    "I work completely offline, so I can't check real-time weather. Try checking a weather app or website!",
+    "Since I'm offline, I don't have access to weather data. You could ask me to open a browser instead!"
+  ],
+  "music": [
+    "I can't play music directly, but I can open a music player for you! Just say 'open spotify' or 'open media player'.",
+    "Want me to open a music app? Try saying 'open spotify' or 'open media player'."
+  ],
+  "alarm": [
+    "I can't set alarms directly, but I can open the Windows Clock app for you! Just say 'open clock'.",
+    "Try saying 'open clock' and I'll launch the Windows Alarms & Clock app for you."
+  ],
+  "language_change": [
+    "I'm currently running in English mode. All my responses will be in English!",
+    "I'm set to English right now. I understand your commands in English."
+  ],
+  "repeat": [
+    "Sure! Here's what I said last: {previous_response}",
+    "My last response was: {previous_response}"
+  ],
+  "age": [
+    "I'm a timeless AI! I don't have a birthday, but I'm always here to help.",
+    "Age is just a number, and mine is undefined! I'm forever young.",
+    "I was born the moment you started me up! So technically, I'm brand new every session."
+  ]
+}
