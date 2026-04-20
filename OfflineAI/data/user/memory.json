@@ -1,15 +1,10 @@
 {
     "user_name": "--text",
-    "conversation_count": 95,
+    "conversation_count": 96,
     "history": [],
     "emotions": [],
     "facts": {},
     "conversation_history": [
-        {
-            "timestamp": "2026-02-08T13:56:02.840966",
-            "user": "what was going to the some ass",
-            "ai": "Last response: Sorry, I didn't understand that. Can you rephrase?"
-        },
         {
             "timestamp": "2026-02-08T13:56:06.108407",
             "user": "ah",
@@ -259,7 +254,12 @@
             "user": "i am sad, explain machine learning",
             "ai": "Hi! How's it going? What can I do for you?\n\nI'm sorry to hear that. Is there anything I can do to help cheer you up?",
             "emotion": "sad"
+        },
+        {
+            "timestamp": "2026-04-20T22:33:02.358695",
+            "user": "What is Python?",
+            "ai": "Python is a high-level programming language. It's easy to learn and read, and is widely used in web development, AI, data science, automation, and more."
         }
     ],
-    "last_active": "2026-04-20T22:29:17.571448"
+    "last_active": "2026-04-20T22:33:02.360846"
 }
