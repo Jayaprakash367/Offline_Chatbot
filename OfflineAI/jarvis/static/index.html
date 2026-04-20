@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JARVIS AI Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="orb orb-a" aria-hidden="true"></div>
+    <div class="orb orb-b" aria-hidden="true"></div>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-mark">J</div>
+            <div>
+                <h1>JARVIS</h1>
+                <p>Face-to-Face AI Assistant • Tamil + English</p>
+            </div>
+        </div>
+        <div class="top-actions">
+            <span id="onlineBadge" class="pill danger">Online model: checking...</span>
+            <span id="visionBadge" class="pill neutral">Vision: checking...</span>
+            <span id="faceBadge" class="pill neutral">Face: not detected</span>
+        </div>
+    </header>
+
+    <main class="layout">
+        <section class="left-panel glass">
+            <h2>Visual Core</h2>
+
+            <div class="camera-box">
+                <video id="cameraVideo" autoplay muted></video>
+                <div id="cameraOverlay" class="camera-overlay">Camera is off</div>
+            </div>
+
+            <div class="avatar-stage" id="avatarStage">
+                <div id="avatar3dHost" class="avatar-3d-host" aria-label="Jarvis 3D avatar"></div>
+
+                <div id="avatarFallback" class="avatar-fallback-wrap">
+                    <div id="avatar" class="avatar male neutral idle" aria-label="Jarvis avatar fallback">
+                        <div class="halo"></div>
+                        <div class="voice-ring ring1"></div>
+                        <div class="voice-ring ring2"></div>
+                        <div class="voice-ring ring3"></div>
+
+                        <div class="torso"></div>
+
+                        <div class="head">
+                            <div class="hair"></div>
+                            <div class="brows">
+                                <span class="brow left"></span>
+                                <span class="brow right"></span>
+                            </div>
+                            <div class="eyes">
+                                <span class="eye left"></span>
+                                <span class="eye right"></span>
+                            </div>
+                            <div class="nose"></div>
+                            <div class="mouth"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-grid">
+                <button id="cameraBtn" class="btn secondary">Start Camera</button>
+                <button id="listenBtn" class="btn secondary">Listen (Backend Mic)</button>
+
+                <label>
+                    Avatar
+                    <select id="avatarSelect">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </label>
+
+                <label>
+                    Mode
+                    <select id="modeSelect">
+                        <option value="auto">Auto</option>
+                        <option value="offline">Offline</option>
+                        <option value="online">Online</option>
+                        <option value="hybrid">Hybrid</option>
+                    </select>
+                </label>
+
+                <label>
+                    Provider
+                    <select id="providerSelect">
+                        <option value="auto">Auto</option>
+                        <option value="openai">OpenAI</option>
+                        <option value="ollama">Ollama</option>
+                    </select>
+                </label>
+
+                <label class="switch-label">
+                    Speak on PC
+                    <input id="speakToggle" type="checkbox" />
+                </label>
+
+                <label class="switch-label">
+                    Vision Emotion
+                    <input id="visionToggle" type="checkbox" checked />
+                </label>
+            </div>
+        </section>
+
+        <section class="right-panel glass">
+            <h2>Conversation</h2>
+
+            <div class="status-row">
+                <span class="chip" id="intentChip">Intent: -</span>
+                <span class="chip" id="emotionChip">Emotion: neutral</span>
+                <span class="chip" id="visualEmotionChip">Vision Emotion: neutral</span>
+                <span class="chip" id="sourceChip">Source: offline</span>
+            </div>
+
+            <div id="chatLog" class="chat-log" aria-live="polite"></div>
+
+            <form id="chatForm" class="composer" autocomplete="off">
+                <input
+                    id="messageInput"
+                    type="text"
+                    placeholder="Type in English or Tamil..."
+                    maxlength="500"
+                    required
+                />
+                <button id="micBtn" type="button" class="btn ghost">Mic</button>
+                <button type="submit" class="btn primary">Send</button>
+            </form>
+
+            <p class="hint">
+                Tip: For full offline mode choose Offline. For best conversational richness use Hybrid with OpenAI or Ollama configured.
+            </p>
+        </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

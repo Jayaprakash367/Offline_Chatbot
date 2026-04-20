@@ -24,7 +24,15 @@ class Memory:
     # ── public API ────────────────────────────────────────
 
     def get_user_name(self) -> Optional[str]:
-        return self.data.get("user_name")
+        name = self.data.get("user_name")
+        if not isinstance(name, str):
+            return None
+
+        stripped = name.strip()
+        if not stripped or stripped.startswith("-"):
+            return None
+
+        return stripped
 
     def set_user_name(self, name: str) -> None:
         # Prevent invalid names (flags, empty, etc.)

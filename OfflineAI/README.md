@@ -14,10 +14,11 @@
 6. [Security Architecture](#6-security-architecture)
 7. [Training Data Format](#7-training-data-format)
 8. [Installation & Setup](#8-installation--setup)
-9. [Building the Executable](#9-building-the-executable)
-10. [Viva Q&A — Key Explanations](#10-viva-qa--key-explanations)
-11. [Ethics & Limitations](#11-ethics--limitations)
-12. [Future Enhancements](#12-future-enhancements)
+9. [JARVIS Visual App (Desktop + Web + Hybrid Models)](#9-jarvis-visual-app-desktop--web--hybrid-models)
+10. [Building the Executable](#10-building-the-executable)
+11. [Viva Q&A — Key Explanations](#11-viva-qa--key-explanations)
+12. [Ethics & Limitations](#12-ethics--limitations)
+13. [Future Enhancements](#13-future-enhancements)
 
 ---
 
@@ -389,11 +390,20 @@ venv\Scripts\activate
 # 3. Install dependencies
 pip install -r requirements.txt
 
+# Optional: install FER-based camera emotion model
+pip install -r requirements_vision.txt
+
 # 4. Run in text mode
 python main.py --text
 
 # 5. Run with voice
 python main.py
+
+# 6. Run Jarvis web UI (browser)
+python jarvis_app.py
+
+# 7. Run Jarvis desktop app (native window)
+python jarvis_app.py --desktop
 ```
 
 ### PyAudio Installation (if pip fails)
@@ -410,31 +420,100 @@ pipwin install pyaudio
 
 ---
 
-## 9. Building the Executable
+## 9. JARVIS Visual App (Desktop + Web + Hybrid Models)
+
+The project now includes a visual JARVIS runtime with:
+
+- Face-to-face UI with live camera preview
+- Procedural 3D avatar renderer with automatic fallback to 2D avatar
+- Animated male/female avatar with emotion-driven expressions
+- Tamil + English conversation flow
+- Camera-based visual emotion pipeline (OpenCV + optional FER model)
+- Offline + online model routing modes: `offline`, `online`, `hybrid`, `auto`
+- Optional desktop app mode via `pywebview`
+
+### Run Modes
+
+```bash
+# Browser mode
+python jarvis_app.py
+
+# Desktop window mode
+python jarvis_app.py --desktop
+
+# Custom host/port
+python jarvis_app.py --host 127.0.0.1 --port 9000
+```
+
+### Online Model Configuration (Optional)
+
+If no online provider is configured, Jarvis continues in offline mode automatically.
+
+```powershell
+# OpenAI
+setx OPENAI_API_KEY "your_api_key_here"
+setx OPENAI_MODEL "gpt-4o-mini"
+
+# Ollama (local)
+setx OLLAMA_BASE_URL "http://127.0.0.1:11434"
+setx OLLAMA_MODEL "llama3.1"
+```
+
+Restart terminal after `setx` commands.
+
+### Camera Emotion Notes
+
+- Base vision pipeline works with OpenCV from `requirements.txt`
+- Higher-accuracy FER inference is enabled when `requirements_vision.txt` is installed
+- If FER is unavailable, Jarvis automatically falls back to OpenCV face detection + neutral-safe inference
+
+---
+
+## 10. Building the Executable
 
 ```bash
 # Make sure PyInstaller is installed
 pip install pyinstaller
 
-# Run the build script
+# Build original OfflineAI console assistant
 python build.py
+
+# Build Jarvis web/desktop runtime
+python build_jarvis.py
 ```
 
 This creates:
 ```
 dist/
-  OfflineAI/
-    OfflineAI.exe    ← Run this on any Windows PC
-    data/            ← All training data included
-      user/          ← Per-user memory
-    ...              ← Python runtime bundled
+  OfflineAI/         ← Original console assistant build
+  JarvisAI/          ← Jarvis visual app build
+    JarvisAI.exe
+    Start-JARVIS-Desktop.bat
+    Start-JARVIS-Web.bat
+    data/
+      user/
+    jarvis/
+      static/
+    ...
 ```
 
-**No Python installation needed on the target machine.**
+### Build One-Click Windows Installer (JarvisAI)
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\build_installer.ps1
+```
+
+This generates a setup executable under:
+
+```
+installer/Output/JarvisAI-Setup.exe
+```
+
+**No Python installation is needed on the target machine.**
 
 ---
 
-## 10. Viva Q&A — Key Explanations
+## 11. Viva Q&A — Key Explanations
 
 ### Q: "Why does small data work?"
 
@@ -501,7 +580,7 @@ Yes! Possible extensions (without breaking offline constraint):
 
 ---
 
-## 11. Ethics & Limitations
+## 12. Ethics & Limitations
 
 ### What the AI DOES:
 - Executes safe, pre-approved commands
@@ -527,7 +606,7 @@ Yes! Possible extensions (without breaking offline constraint):
 
 ---
 
-## 12. Future Enhancements
+## 13. Future Enhancements
 
 | Enhancement | Difficulty | Offline? |
 |---|---|---|
@@ -547,9 +626,13 @@ Yes! Possible extensions (without breaking offline constraint):
 ```
 OfflineAI/
 ├── main.py                          ← Entry point
+├── jarvis_app.py                    ← Jarvis web + desktop runtime
 ├── config.py                        ← All constants & paths
 ├── requirements.txt                 ← Python dependencies
+├── requirements_vision.txt          ← Optional FER/TensorFlow extras
 ├── build.py                         ← PyInstaller build script
+├── build_jarvis.py                  ← Jarvis executable build script
+├── build_installer.ps1              ← Inno Setup installer automation
 ├── README.md                        ← This documentation
 ├── __init__.py
 │
@@ -563,7 +646,19 @@ OfflineAI/
 │   ├── response_engine.py           ← Module 6: Response templates
 │   ├── knowledge_base.py            ← Module 7: Offline Q&A
 │   ├── memory.py                    ← Module 8: Local persistence
-│   └── voice_output.py              ← Module 9: Text → Speech
+│   ├── voice_output.py              ← Module 9: Text → Speech
+│   ├── model_router.py              ← Module 10: Online model routing
+│   └── vision_emotion.py            ← Module 11: Camera emotion pipeline
+│
+├── jarvis/
+│   └── static/
+│       ├── index.html               ← Jarvis visual interface
+│       ├── styles.css               ← Futuristic avatar/UI theme
+│       └── app.js                   ← Frontend logic + API integration
+│
+├── installer/
+│   ├── JarvisAI.iss                 ← Inno Setup script
+│   └── Output/                      ← Generated installer output
 │
 ├── data/
 │   ├── intent_data.json             ← Intent patterns (trainable)

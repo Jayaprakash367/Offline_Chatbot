@@ -1,70 +1,10 @@
 {
     "user_name": "--text",
-    "conversation_count": 83,
+    "conversation_count": 95,
     "history": [],
     "emotions": [],
     "facts": {},
     "conversation_history": [
-        {
-            "timestamp": "2026-02-08T13:47:07.394180",
-            "user": "open the vs code",
-            "ai": "vs code is launching."
-        },
-        {
-            "timestamp": "2026-02-08T13:47:32.832133",
-            "user": "open browser type youtube",
-            "ai": "I don't have a response for 'open_app_fail' right now."
-        },
-        {
-            "timestamp": "2026-02-08T13:50:40.527281",
-            "user": "huh",
-            "ai": "Last response: I don't have a response for 'open_app_fail' right now."
-        },
-        {
-            "timestamp": "2026-02-08T13:51:12.181916",
-            "user": "huh",
-            "ai": "Last response: Last response: I don't have a response for 'open_app_fail' right now."
-        },
-        {
-            "timestamp": "2026-02-08T13:51:27.687995",
-            "user": "huh",
-            "ai": "Last response: Last response: Last response: I don't have a response for 'open_app_fail' right now."
-        },
-        {
-            "timestamp": "2026-02-08T13:51:40.833530",
-            "user": "huh",
-            "ai": "Last response: Last response: Last response: Last response: I don't have a response for 'open_app_fail' right now."
-        },
-        {
-            "timestamp": "2026-02-08T13:52:13.011680",
-            "user": "huh",
-            "ai": "Last response: Last response: Last response: Last response: Last response: I don't have a response for 'open_app_fail' right now."
-        },
-        {
-            "timestamp": "2026-02-08T13:52:28.162378",
-            "user": "huh",
-            "ai": "Last response: Last response: Last response: Last response: Last response: Last response: I don't have a response for 'open_app_fail' right now."
-        },
-        {
-            "timestamp": "2026-02-08T13:52:48.602935",
-            "user": "how it's been popular media",
-            "ai": "Are you okay? How do you feel?"
-        },
-        {
-            "timestamp": "2026-02-08T13:53:24.574741",
-            "user": "huh",
-            "ai": "Last response: Are you okay? How do you feel?"
-        },
-        {
-            "timestamp": "2026-02-08T13:53:39.896492",
-            "user": "huh",
-            "ai": "Last response: Last response: Are you okay? How do you feel?"
-        },
-        {
-            "timestamp": "2026-02-08T13:53:52.653829",
-            "user": "he's",
-            "ai": "Sorry, I didn't understand that. Can you rephrase?"
-        },
         {
             "timestamp": "2026-02-08T13:56:02.840966",
             "user": "what was going to the some ass",
@@ -254,7 +194,72 @@
             "timestamp": "2026-03-01T15:48:36.563733",
             "user": "hello",
             "ai": "Welcome back, --text! What's on your mind?"
+        },
+        {
+            "timestamp": "2026-04-20T22:13:13.810010",
+            "user": "hello",
+            "ai": "Welcome back, --text! What's on your mind?"
+        },
+        {
+            "timestamp": "2026-04-20T22:14:07.748528",
+            "user": "hello what kind of help  you can do",
+            "ai": "Welcome back, --text! What's on your mind?"
+        },
+        {
+            "timestamp": "2026-04-20T22:20:32.520804",
+            "user": "no more they'd leave and you get",
+            "ai": "Hey, --text! I'm all ears. What would you like?"
+        },
+        {
+            "timestamp": "2026-04-20T22:24:32.912335",
+            "user": "What is Python?",
+            "ai": "Python is a high-level programming language. It's easy to learn and read, and is widely used in web development, AI, data science, automation, and more."
+        },
+        {
+            "timestamp": "2026-04-20T22:24:35.170023",
+            "user": "i am sad what is machine learning?",
+            "ai": "Hey, --text! Good to see you. What do you need?\n\nI'm sorry to hear that. Is there anything I can do to help cheer you up?",
+            "emotion": "sad"
+        },
+        {
+            "timestamp": "2026-04-20T22:24:59.911626",
+            "user": "What is Python?",
+            "ai": "Python is a high-level programming language. It's easy to learn and read, and is widely used in web development, AI, data science, automation, and more."
+        },
+        {
+            "timestamp": "2026-04-20T22:25:17.409541",
+            "user": "Who is Ada Lovelace?",
+            "ai": "I don't know the answer to that. If you'd like to teach me, just type 'teach'!"
+        },
+        {
+            "timestamp": "2026-04-20T22:25:19.568417",
+            "user": "i am sad, explain machine learning",
+            "ai": "Hey, --text! I'm all ears. What would you like?\n\nI understand. I'm here if you want to talk or need a distraction.",
+            "emotion": "sad"
+        },
+        {
+            "timestamp": "2026-04-20T22:26:07.288303",
+            "user": "What is Python?",
+            "ai": "Python is a high-level programming language. It's easy to learn and read, and is widely used in web development, AI, data science, automation, and more."
+        },
+        {
+            "timestamp": "2026-04-20T22:26:11.462547",
+            "user": "i am sad, explain machine learning",
+            "ai": "Hello, --text! How can I help you today?\n\nI understand. I'm here if you want to talk or need a distraction.",
+            "emotion": "sad"
+        },
+        {
+            "timestamp": "2026-04-20T22:26:22.744156",
+            "user": "I am sad. What is Python?",
+            "ai": "Python is a high-level programming language. It's easy to learn and read, and is widely used in web development, AI, data science, automation, and more. If you want, I can also guide you step by step.",
+            "emotion": "sad"
+        },
+        {
+            "timestamp": "2026-04-20T22:29:17.567469",
+            "user": "i am sad, explain machine learning",
+            "ai": "Hi! How's it going? What can I do for you?\n\nI'm sorry to hear that. Is there anything I can do to help cheer you up?",
+            "emotion": "sad"
         }
     ],
-    "last_active": "2026-03-01T15:48:36.565067"
+    "last_active": "2026-04-20T22:29:17.571448"
 }

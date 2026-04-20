@@ -1,0 +1,7 @@
+# Optional high-accuracy camera emotion stack for JARVIS
+# Install only if you want FER-based emotion detection.
+# Base app works without this file.
+
+fer>=22.5.1
+# FER depends on TensorFlow/Keras backend in many environments.
+# Install tensorflow-cpu manually if FER reports missing backend.
