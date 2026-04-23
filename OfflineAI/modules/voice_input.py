@@ -2,8 +2,9 @@
 =============================================================
   MODULE 1 — VOICE INPUT (Offline Speech Recognition)
   
-  Uses the VOSK engine for high-accuracy offline recognition.
-  Auto-downloads the small English model on first run.
+  Uses the VOSK engine for English (offline, high-accuracy)
+  Uses Google Speech Recognition for Tamil (online, but lightweight)
+  Auto-downloads speech model on first run.
   Falls back to TEXT input if mic/model unavailable.
   NEVER records or stores raw audio.
 =============================================================
@@ -63,14 +64,52 @@ def _download_vosk_model():
 
 
 class VoiceInput:
-    """Captures user speech via Vosk (offline) or keyboard fallback."""
+    """Captures user speech - Vosk for English, Google for Tamil, keyboard fallback."""
 
     def __init__(self):
         self._vosk_available = False
         self._mic_available = False
         self._model = None
         self._pyaudio = None
+        self._recognizer = None
+        self._google_available = False
+        self.language = LANGUAGE
 
+        # Initialize based on language
+        if self.language == "ta":
+            self._init_tamil()
+        else:
+            self._init_english()
+
+    def _init_tamil(self):
+        """Initialize Tamil speech recognition (Google Speech Recognition)."""
+        try:
+            self._recognizer = sr.Recognizer()
+            self._google_available = True
+            print("[VoiceInput] Tamil speech recognition ready")
+            print("  (Using Google Speech Recognition for ta-IN)")
+        except Exception as e:
+            print(f"[VoiceInput] Tamil init error: {e}")
+            self._google_available = False
+
+        # Try to init microphone
+        try:
+            import pyaudio
+            self._pyaudio = pyaudio.PyAudio()
+            if self._pyaudio is not None:
+                test = self._pyaudio.open(
+                    format=pyaudio.paInt16, channels=1,
+                    rate=16000, input=True, frames_per_buffer=4096
+                )
+                test.close()
+                self._mic_available = True
+                print("[VoiceInput] Microphone ready")
+        except Exception as e:
+            print(f"[VoiceInput] No microphone: {e}")
+            self._mic_available = False
+
+    def _init_english(self):
+        """Initialize English speech recognition (Vosk)."""
         # 1. Try to load Vosk
         try:
             from vosk import Model, SetLogLevel
@@ -108,19 +147,17 @@ class VoiceInput:
             print(f"[VoiceInput] No microphone: {e}")
             self._mic_available = False
 
-        # 3. Try to init Google Speech Recognition for Tamil
-        try:
-            self._recognizer = sr.Recognizer()
-            self._google_available = True
-            print("[VoiceInput] Google Speech Recognition (Tamil) ready")
-        except Exception as e:
-            print(f"[VoiceInput] Google Speech Recognition init failed: {e}")
-            self._google_available = False
-
     # ── public API ────────────────────────────────────────
 
     def listen(self) -> str:
         """Listen to the user and return recognised text."""
+        if self.language == "ta":
+            return self._listen_tamil()
+        else:
+            return self._listen_english()
+
+    def _listen_english(self) -> str:
+        """Listen to English speech using Vosk."""
         if not self._mic_available or not self._vosk_available:
             return self._text_fallback()
 
@@ -132,7 +169,31 @@ class VoiceInput:
                 print("   [Tip] Speak clearly and try again, or type your command]")
                 retry = input("   Retry (y) or type (t)? ").strip().lower()
                 if retry == "y":
-                    return self.listen()
+                    return self._listen_english()
+                else:
+                    return self._text_fallback()
+            
+            return text
+        except KeyboardInterrupt:
+            raise
+        except Exception as e:
+            print(f"   [Voice error: {e}]")
+            return self._text_fallback()
+
+    def _listen_tamil(self) -> str:
+        """Listen to Tamil speech using Google Speech Recognition."""
+        if not self._mic_available or not self._google_available:
+            return self._text_fallback()
+
+        try:
+            text = self._listen_google_tamil()
+            
+            # If no text recognized, offer retry or text fallback
+            if not text:
+                print("   [Tip] பேசுங்க தெளிவாக அல்லது type செய்யுங்க]")
+                retry = input("   Retry (y) or type (t)? ").strip().lower()
+                if retry == "y":
+                    return self._listen_tamil()
                 else:
                     return self._text_fallback()
             
@@ -144,7 +205,8 @@ class VoiceInput:
             return self._text_fallback()
 
     def is_mic_available(self) -> bool:
-        if LANGUAGE == "ta":
+        """Check if microphone and speech recognition are available."""
+        if self.language == "ta":
             return self._mic_available and self._google_available
         else:
             return self._mic_available and self._vosk_available
