@@ -92,7 +92,7 @@ class CommandExecutor:
     def get_system_status(self) -> dict:
         """Return current CPU, RAM, and battery information."""
         status = {
-            "cpu": psutil.cpu_percent(interval=1),
+            "cpu": psutil.cpu_percent(interval=0.25),
             "ram": psutil.virtual_memory().percent,
             "battery": self._battery_info(),
         }
@@ -100,6 +100,41 @@ class CommandExecutor:
 
     def get_battery(self) -> str:
         return self._battery_info()
+
+    def shutdown_pc(self, countdown_seconds: int = 20) -> Tuple[bool, str]:
+        """
+        Schedule a Windows shutdown with a short grace period.
+
+        Returns (success, seconds_message).
+        """
+        seconds = max(0, min(int(countdown_seconds), 120))
+        comment = "JARVIS assistant requested shutdown"
+
+        try:
+            subprocess.run(
+                ["shutdown", "/s", "/t", str(seconds), "/c", comment],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                timeout=5,
+            )
+            return (True, str(seconds))
+        except Exception as e:
+            return (False, f"Could not schedule shutdown: {e}")
+
+    def cancel_shutdown(self) -> Tuple[bool, str]:
+        """Abort any pending Windows shutdown request."""
+        try:
+            result = subprocess.run(
+                ["shutdown", "/a"],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                timeout=5,
+            )
+            if result.returncode == 0:
+                return (True, "aborted")
+            return (False, "no pending shutdown")
+        except Exception as e:
+            return (False, f"Could not cancel shutdown: {e}")
 
     # ── safety ────────────────────────────────────────────
 

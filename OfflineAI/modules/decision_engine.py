@@ -159,6 +159,22 @@ class DecisionEngine:
             else:
                 return self.response_engine.get("close_app_fail", app=app)
 
+        if tag == "shutdown_pc":
+            user_lower = self._last_input.lower().strip() if hasattr(self, '_last_input') else ""
+            if not self._power_command_confirmed(user_lower):
+                return self.response_engine.get("shutdown_confirm_prompt")
+
+            success, msg = self.command_executor.shutdown_pc(countdown_seconds=20)
+            if success:
+                return self.response_engine.get("shutdown_success", seconds=msg)
+            return self.response_engine.get("shutdown_fail")
+
+        if tag == "cancel_shutdown":
+            success, _ = self.command_executor.cancel_shutdown()
+            if success:
+                return self.response_engine.get("shutdown_cancel_success")
+            return self.response_engine.get("shutdown_cancel_fail")
+
         if tag == "system_status":
             status = self.command_executor.get_system_status()
             return self.response_engine.get(
@@ -294,3 +310,15 @@ class DecisionEngine:
             if blocked in lower:
                 return False
         return True
+
+    @staticmethod
+    def _power_command_confirmed(lower_text: str) -> bool:
+        checks = (
+            "confirm shutdown",
+            "shutdown now",
+            "power off now",
+            "shut down now",
+            "yes shutdown",
+            "shutdown confirm",
+        )
+        return any(phrase in lower_text for phrase in checks)

@@ -3,50 +3,68 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JARVIS AI Assistant</title>
+    <title>JARVIS Voice Agent</title>
     <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
-    <div class="bg-grid" aria-hidden="true"></div>
-    <div class="orb orb-a" aria-hidden="true"></div>
-    <div class="orb orb-b" aria-hidden="true"></div>
+    <div class="ambient ambient-a" aria-hidden="true"></div>
+    <div class="ambient ambient-b" aria-hidden="true"></div>
+    <div class="ambient-grid" aria-hidden="true"></div>
 
     <header class="topbar">
         <div class="brand">
             <div class="brand-mark">J</div>
             <div>
-                <h1>JARVIS</h1>
-                <p>Face-to-Face AI Assistant • Tamil + English</p>
+                <h1>JARVIS VOICE AGENT</h1>
+                <p>Friendly Assistant · Tamil + English</p>
             </div>
         </div>
+
         <div class="top-actions">
             <span id="onlineBadge" class="pill danger">Online model: checking...</span>
             <span id="visionBadge" class="pill neutral">Vision: checking...</span>
             <span id="faceBadge" class="pill neutral">Face: not detected</span>
+            <span id="languageBadge" class="pill neutral">Language: auto</span>
+            <span id="speedBadge" class="pill neutral">Speed: balanced</span>
         </div>
     </header>
 
-    <main class="layout">
-        <section class="left-panel glass">
-            <h2>Visual Core</h2>
+    <main class="assistant-layout">
+        <section class="agent-panel glass">
+            <h2>Voice Core</h2>
+
+            <div class="orb-zone">
+                <div id="assistantOrb" class="assistant-orb idle" aria-hidden="true">
+                    <span class="orb-ring ring-a"></span>
+                    <span class="orb-ring ring-b"></span>
+                    <span class="orb-ring ring-c"></span>
+                    <span class="orb-core"></span>
+                </div>
+                <p id="orbStatus" class="orb-status">Ready. Tap mic or type a message.</p>
+            </div>
+
+            <div class="quick-actions">
+                <button class="quick-btn" type="button" data-quick-command="open notepad">Open Notepad</button>
+                <button class="quick-btn" type="button" data-quick-command="close chrome">Close Chrome</button>
+                <button class="quick-btn" type="button" data-quick-command="system status">System Status</button>
+                <button class="quick-btn danger" type="button" data-quick-command="shutdown now">Shutdown Now</button>
+                <button class="quick-btn" type="button" data-quick-command="cancel shutdown">Cancel Shutdown</button>
+            </div>
 
             <div class="camera-box">
                 <video id="cameraVideo" autoplay muted></video>
                 <div id="cameraOverlay" class="camera-overlay">Camera is off</div>
             </div>
 
-            <div class="avatar-stage" id="avatarStage">
+            <div class="avatar-stage utility-hidden" id="avatarStage" data-enable-avatar="false">
                 <div id="avatar3dHost" class="avatar-3d-host" aria-label="Jarvis 3D avatar"></div>
-
                 <div id="avatarFallback" class="avatar-fallback-wrap">
                     <div id="avatar" class="avatar male neutral idle" aria-label="Jarvis avatar fallback">
                         <div class="halo"></div>
                         <div class="voice-ring ring1"></div>
                         <div class="voice-ring ring2"></div>
                         <div class="voice-ring ring3"></div>
-
                         <div class="torso"></div>
-
                         <div class="head">
                             <div class="hair"></div>
                             <div class="brows">
@@ -63,10 +81,45 @@
                     </div>
                 </div>
             </div>
+        </section>
 
+        <section class="conversation-panel glass">
+            <h2>Conversation</h2>
+
+            <div class="status-row">
+                <span class="chip" id="intentChip">Intent: -</span>
+                <span class="chip" id="emotionChip">Emotion: neutral</span>
+                <span class="chip" id="visualEmotionChip">Vision Emotion: neutral</span>
+                <span class="chip" id="sourceChip">Source: offline</span>
+                <span class="chip" id="modelChip">Model: -</span>
+                <span class="chip" id="languageChip">Language: en</span>
+                <span class="chip" id="speedChip">Speed: balanced</span>
+            </div>
+
+            <div id="chatLog" class="chat-log" aria-live="polite"></div>
+
+            <form id="chatForm" class="composer" autocomplete="off">
+                <input
+                    id="messageInput"
+                    type="text"
+                    placeholder="Talk to JARVIS in Tamil or English..."
+                    maxlength="500"
+                    required
+                />
+                <button id="micBtn" type="button" class="btn ghost">Mic</button>
+                <button type="submit" class="btn primary">Send</button>
+            </form>
+
+            <p class="hint">
+                For power commands use: "shutdown now" or "cancel shutdown".
+            </p>
+        </section>
+
+        <section class="controls-panel glass">
+            <h2>Controls</h2>
             <div class="control-grid">
-                <button id="cameraBtn" class="btn secondary">Start Camera</button>
-                <button id="listenBtn" class="btn secondary">Listen (Backend Mic)</button>
+                <button id="cameraBtn" class="btn secondary" type="button">Start Camera</button>
+                <button id="listenBtn" class="btn secondary" type="button">Listen (Backend Mic)</button>
 
                 <label>
                     Avatar
@@ -95,6 +148,15 @@
                     </select>
                 </label>
 
+                <label>
+                    Speed Profile
+                    <select id="speedProfileSelect">
+                        <option value="turbo">Turbo</option>
+                        <option value="balanced" selected>Balanced</option>
+                        <option value="quality">Quality</option>
+                    </select>
+                </label>
+
                 <label class="switch-label">
                     Speak on PC
                     <input id="speakToggle" type="checkbox" />
@@ -105,35 +167,6 @@
                     <input id="visionToggle" type="checkbox" checked />
                 </label>
             </div>
-        </section>
-
-        <section class="right-panel glass">
-            <h2>Conversation</h2>
-
-            <div class="status-row">
-                <span class="chip" id="intentChip">Intent: -</span>
-                <span class="chip" id="emotionChip">Emotion: neutral</span>
-                <span class="chip" id="visualEmotionChip">Vision Emotion: neutral</span>
-                <span class="chip" id="sourceChip">Source: offline</span>
-            </div>
-
-            <div id="chatLog" class="chat-log" aria-live="polite"></div>
-
-            <form id="chatForm" class="composer" autocomplete="off">
-                <input
-                    id="messageInput"
-                    type="text"
-                    placeholder="Type in English or Tamil..."
-                    maxlength="500"
-                    required
-                />
-                <button id="micBtn" type="button" class="btn ghost">Mic</button>
-                <button type="submit" class="btn primary">Send</button>
-            </form>
-
-            <p class="hint">
-                Tip: For full offline mode choose Offline. For best conversational richness use Hybrid with OpenAI or Ollama configured.
-            </p>
         </section>
     </main>
 

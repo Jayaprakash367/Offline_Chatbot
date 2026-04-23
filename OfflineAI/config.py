@@ -134,7 +134,7 @@ CLOSEABLE_APPS = {
 MAX_INPUT_LENGTH = 500           # chars
 BLOCKED_KEYWORDS = [
     "delete", "format", "registry", "regedit", "powershell",
-    "admin", "sudo", "rm -rf", "shutdown", "restart",
+    "admin", "sudo", "rm -rf",
     "hack", "exploit", "inject", "keylog", "password",
     "virus", "malware", "trojan", "backdoor",
 ]

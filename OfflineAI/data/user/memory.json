@@ -1,35 +1,10 @@
 {
     "user_name": "--text",
-    "conversation_count": 96,
+    "conversation_count": 101,
     "history": [],
     "emotions": [],
     "facts": {},
     "conversation_history": [
-        {
-            "timestamp": "2026-02-08T13:56:06.108407",
-            "user": "ah",
-            "ai": "It's my pleasure to assist you."
-        },
-        {
-            "timestamp": "2026-02-08T13:56:21.421370",
-            "user": "huh",
-            "ai": "Last response: It's my pleasure to assist you."
-        },
-        {
-            "timestamp": "2026-02-08T20:20:19.371679",
-            "user": "hello",
-            "ai": "Hey jayaprakash! வணக்கம்! நான் உங்களுக்கு எப்படி உதவ முடியும்?"
-        },
-        {
-            "timestamp": "2026-02-08T20:20:33.755189",
-            "user": "open vs code",
-            "ai": "vs code ready! வேற ஏதாவது?"
-        },
-        {
-            "timestamp": "2026-02-08T20:20:58.491383",
-            "user": "open vs code click the copilot",
-            "ai": "vs code open ஆகிவிட்டது!"
-        },
         {
             "timestamp": "2026-02-08T20:21:15.667583",
             "user": "fewff",
@@ -259,7 +234,32 @@
             "timestamp": "2026-04-20T22:33:02.358695",
             "user": "What is Python?",
             "ai": "Python is a high-level programming language. It's easy to learn and read, and is widely used in web development, AI, data science, automation, and more."
+        },
+        {
+            "timestamp": "2026-04-23T13:40:08.315914",
+            "user": "hello",
+            "ai": "Welcome back! What's on your mind?"
+        },
+        {
+            "timestamp": "2026-04-23T13:40:32.952380",
+            "user": "what kind of help you can do",
+            "ai": "Hello! How can I help you today?"
+        },
+        {
+            "timestamp": "2026-04-23T13:40:44.134985",
+            "user": "open vs code",
+            "ai": "vs code is now launching."
+        },
+        {
+            "timestamp": "2026-04-23T13:46:57.001161",
+            "user": "open whatsapp",
+            "ai": "Done! Opening whatsapp for you."
+        },
+        {
+            "timestamp": "2026-04-23T14:05:44.772099",
+            "user": "hello",
+            "ai": "Hey! Good to see you. What do you need?"
         }
     ],
-    "last_active": "2026-04-20T22:33:02.360846"
+    "last_active": "2026-04-23T14:05:44.774076"
 }

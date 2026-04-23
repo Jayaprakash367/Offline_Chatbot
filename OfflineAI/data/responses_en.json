@@ -33,8 +33,8 @@
     "I'm your local AI helper. I work without internet, so your conversations and data never leave your computer."
   ],
   "help": [
-    "Here's what I can do for you:\n\n- Open & close apps (notepad, chrome, brave, edge, calculator, etc.)\n- Check system status (CPU, RAM, battery)\n- Tell you the time and date\n- Tell jokes and fun facts\n- Answer knowledge questions\n- Understand your emotions\n- Learn new things you teach me\n\nJust ask naturally, like 'open notepad' or 'tell me a joke'!",
-    "I'm your all-in-one offline assistant! Try these:\n- 'open chrome' - launch apps\n- 'system status' - check CPU/RAM\n- 'what time is it' - get current time\n- 'tell me a joke' - have some fun\n- 'what is python' - ask questions\n- 'teach' - teach me something new"
+    "Here's what I can do for you:\n\n- Open & close apps (notepad, chrome, brave, edge, calculator, etc.)\n- Shutdown PC safely (with confirmation) and cancel shutdown\n- Check system status (CPU, RAM, battery)\n- Tell you the time and date\n- Tell jokes and fun facts\n- Answer knowledge questions\n- Understand your emotions\n- Learn new things you teach me\n\nJust ask naturally, like 'open notepad' or 'tell me a joke'!",
+    "I'm your all-in-one offline assistant! Try these:\n- 'open chrome' - launch apps\n- 'close chrome' - close apps\n- 'shutdown now' - shut down PC\n- 'cancel shutdown' - stop pending shutdown\n- 'system status' - check CPU/RAM\n- 'what time is it' - get current time\n- 'tell me a joke' - have some fun\n- 'what is python' - ask questions\n- 'teach' - teach me something new"
   ],
   "joke": [
     "Why do programmers prefer dark mode? Because light attracts bugs!",
@@ -84,6 +84,31 @@
     "{app} doesn't seem to be open at the moment.",
     "I can't close {app}. Is it currently running?",
     "Unable to close {app}. It may already be closed."
+  ],
+  "shutdown_confirm_prompt": [
+    "I can shut down your PC. For safety, please say 'shutdown now' or 'confirm shutdown'.",
+    "Power action detected. Please confirm by saying 'confirm shutdown'.",
+    "I am ready to shut down the computer. Say 'shutdown now' to continue."
+  ],
+  "shutdown_success": [
+    "Shutdown has been scheduled. Your PC will turn off in about {seconds} seconds.",
+    "Done. I started shutdown countdown for {seconds} seconds. Say 'cancel shutdown' if needed.",
+    "Confirmed. System shutdown is in progress ({seconds} second timer)."
+  ],
+  "shutdown_fail": [
+    "I couldn't start shutdown. Please try again with proper permissions.",
+    "Shutdown command failed. Please retry once.",
+    "I was unable to process shutdown right now."
+  ],
+  "shutdown_cancel_success": [
+    "Done. I cancelled the pending shutdown.",
+    "Shutdown aborted successfully.",
+    "Okay, I stopped the shutdown process."
+  ],
+  "shutdown_cancel_fail": [
+    "I couldn't cancel shutdown. There may be no pending shutdown.",
+    "No active shutdown timer was found to cancel.",
+    "Cancel failed. If shutdown was not scheduled, this is expected."
   ],
   "system_status": [
     "Here's your system status:\n  CPU Usage: {cpu}%\n  RAM Usage: {ram}%\n  Battery: {battery}"

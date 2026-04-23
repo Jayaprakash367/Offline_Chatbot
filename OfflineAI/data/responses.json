@@ -34,8 +34,8 @@
         "நான் ஒரு offline AI. உங்கள் data safe-ஆ உங்கள் computer-லேயே இருக்கும்."
     ],
     "help": [
-        "நான் பல விஷயங்கள் செய்ய முடியும்:\n- Apps திறக்க/மூட முடியும் (notepad, chrome, calculator, brave, edge)\n- System status பார்க்க முடியும் (CPU, RAM, Battery)\n- நேரம், தேதி சொல்ல முடியும்\n- ஜோக் சொல்ல முடியும்\n- உங்கள் உணர்வுகளை புரிந்துகொள்ள முடியும்\n- கேள்விகளுக்கு பதில் சொல்ல முடியும்\n- புதிய விஷயங்கள் கற்றுக்கொள்ள முடியும்\n\nTamil-லும் English-லும் பேசலாம்!",
-        "சொல்லுங்க! App open/close, system check, jokes, Q&A - எல்லாம் செய்வேன்.\nTamil, Tanglish, English - எந்த language-லும் type பண்ணலாம்."
+        "நான் பல விஷயங்கள் செய்ய முடியும்:\n- Apps திறக்க/மூட முடியும் (notepad, chrome, calculator, brave, edge)\n- PC shutdown பண்ண முடியும் (confirm கேட்ட பிறகு)\n- Pending shutdown cancel பண்ண முடியும்\n- System status பார்க்க முடியும் (CPU, RAM, Battery)\n- நேரம், தேதி சொல்ல முடியும்\n- ஜோக் சொல்ல முடியும்\n- உங்கள் உணர்வுகளை புரிந்துகொள்ள முடியும்\n- கேள்விகளுக்கு பதில் சொல்ல முடியும்\n- புதிய விஷயங்கள் கற்றுக்கொள்ள முடியும்\n\nTamil-லும் English-லும் பேசலாம்!",
+        "சொல்லுங்க! App open/close, shutdown/cancel shutdown, system check, jokes, Q&A - எல்லாம் செய்வேன்.\nTamil, Tanglish, English - எந்த language-லும் type பண்ணலாம்."
     ],
     "joke": [
         "ஒரு புரோகிராமர் ஏன் dark mode use பண்றாரு? ஏன்னா light bugs-ஐ attract பண்ணும்!",
@@ -85,6 +85,31 @@
         "{app} close பண்ண முடியல.",
         "மன்னிக்கவும், {app} இப்போ running-ல இல்ல.",
         "{app} மூட முடியல. App running-ல இருக்கான்னு check பண்ணுங்க."
+    ],
+    "shutdown_confirm_prompt": [
+        "PC shutdown பண்ண முடியும். Safety காக 'shutdown now' அல்லது 'confirm shutdown' சொல்லுங்க.",
+        "Power action வந்திருக்கு. Confirm பண்ண 'confirm shutdown' சொல்லுங்க.",
+        "System shutdown ரெடி. Continue பண்ண 'shutdown now' சொல்லுங்க."
+    ],
+    "shutdown_success": [
+        "சரி, shutdown schedule பண்ணிட்டேன். சுமார் {seconds} seconds-ல் PC off ஆகும்.",
+        "Done. {seconds} seconds countdown-குடன் shutdown தொடங்கிட்டது. வேண்டும்னா 'cancel shutdown' சொல்லுங்க.",
+        "Confirmed. System shutdown process தொடங்கிவிட்டது ({seconds} second timer)."
+    ],
+    "shutdown_fail": [
+        "Shutdown command run ஆகல. மறுபடியும் try பண்ணுங்க.",
+        "மன்னிக்கவும், shutdown start பண்ண முடியல.",
+        "இப்போ shutdown process செய்ய முடியல. கொஞ்சம் பிறகு try பண்ணுங்க."
+    ],
+    "shutdown_cancel_success": [
+        "சரி, pending shutdown cancel பண்ணிட்டேன்.",
+        "Shutdown successfully abort ஆகிவிட்டது.",
+        "Okay, shutdown process நிறுத்திவிட்டேன்."
+    ],
+    "shutdown_cancel_fail": [
+        "Cancel பண்ண முடியல. Pending shutdown இல்லாதிருக்கலாம்.",
+        "Active shutdown timer கிடைக்கல.",
+        "Shutdown cancel ஆகல. ஏற்கனவே shutdown schedule இல்லாவிட்டால் இது normal."
     ],
     "system_status": [
         "System Status:\n- CPU: {cpu}%\n- RAM: {ram}%\n- Battery: {battery}",

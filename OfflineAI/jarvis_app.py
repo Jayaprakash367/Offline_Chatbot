@@ -48,10 +48,13 @@ from modules.voice_output import VoiceOutput
 
 VALID_MODES = {"auto", "offline", "online", "hybrid"}
 VALID_PROVIDERS = {"auto", "openai", "ollama"}
+VALID_SPEED_PROFILES = {"turbo", "balanced", "quality"}
 COMMAND_CONFIDENCE_THRESHOLD = 0.45
 ACTION_INTENT_TAGS = {
     "open_app",
     "close_app",
+    "shutdown_pc",
+    "cancel_shutdown",
     "system_status",
     "time",
     "date",
@@ -68,6 +71,7 @@ class ChatRequest(BaseModel):
     message: str = Field(min_length=1, max_length=500)
     mode: str = Field(default="auto")
     provider: str = Field(default="auto")
+    speed_profile: str = Field(default="balanced")
     persona: str = Field(default="JARVIS")
     avatar: str = Field(default="male")
     visual_emotion: str = Field(default="")
@@ -107,6 +111,7 @@ class JarvisRuntime:
         message: str,
         mode: str = "auto",
         provider: str = "auto",
+        speed_profile: str = "balanced",
         persona: str = "JARVIS",
         visual_emotion: str = "",
         speak: bool = False,
@@ -117,6 +122,8 @@ class JarvisRuntime:
 
         mode = self._normalize_mode(mode)
         provider = self._normalize_provider(provider)
+        speed_profile = self._normalize_speed_profile(speed_profile)
+        language = self.router.language_hint(user_text)
 
         with self._lock:
             intent_tag, intent_conf, entities = self.engine.intent_detector.detect(user_text)
@@ -154,6 +161,7 @@ class JarvisRuntime:
                     user_text=user_text,
                     emotion=emotion,
                     provider=provider,
+                    speed_profile=speed_profile,
                     persona=persona,
                     factual_context=factual_context,
                 )
@@ -163,6 +171,7 @@ class JarvisRuntime:
                     has_action_command=has_action_command,
                     emotion=emotion,
                     provider=provider,
+                    speed_profile=speed_profile,
                     persona=persona,
                     factual_context=factual_context,
                 )
@@ -175,6 +184,7 @@ class JarvisRuntime:
                         user_text=user_text,
                         emotion=emotion,
                         provider=provider,
+                        speed_profile=speed_profile,
                         persona=persona,
                         factual_context=factual_context,
                     )
@@ -190,6 +200,8 @@ class JarvisRuntime:
                 "source": source,
                 "provider": provider_used,
                 "model": model_used,
+                "language": language,
+                "speed_profile": speed_profile,
                 "intent": {
                     "tag": intent_tag,
                     "confidence": round(intent_conf, 3),
@@ -247,6 +259,8 @@ class JarvisRuntime:
             "user_name": memory_name,
             "modes": sorted(VALID_MODES),
             "providers": sorted(VALID_PROVIDERS),
+            "speed_profiles": sorted(VALID_SPEED_PROFILES),
+            "default_speed_profile": self.router.default_speed_profile,
             "online": self.router.provider_status(),
         }
 
@@ -265,6 +279,7 @@ class JarvisRuntime:
         user_text: str,
         emotion: str,
         provider: str,
+        speed_profile: str,
         persona: str,
         factual_context: FactualContext,
     ) -> tuple[str, str, str, str]:
@@ -280,6 +295,7 @@ class JarvisRuntime:
             context_turns=context_turns,
             factual_context=factual_context.to_prompt_block(),
             response_style="friendly-human",
+            speed_profile=speed_profile,
         )
 
         if online_result:
@@ -318,6 +334,7 @@ class JarvisRuntime:
         has_action_command: bool,
         emotion: str,
         provider: str,
+        speed_profile: str,
         persona: str,
         factual_context: FactualContext,
     ) -> tuple[str, str, str, str]:
@@ -340,6 +357,7 @@ class JarvisRuntime:
                 context_turns=self.engine.memory.get_history(),
                 factual_context="",
                 response_style="brief-supportive",
+                speed_profile=speed_profile,
             )
 
             if online_result:
@@ -353,6 +371,7 @@ class JarvisRuntime:
             user_text=user_text,
             emotion=emotion,
             provider=provider,
+            speed_profile=speed_profile,
             persona=persona,
             factual_context=factual_context,
         )
@@ -432,6 +451,13 @@ class JarvisRuntime:
         return value if value in VALID_PROVIDERS else "auto"
 
     @staticmethod
+    def _normalize_speed_profile(profile: str) -> str:
+        value = (profile or "balanced").strip().lower()
+        if value in VALID_SPEED_PROFILES:
+            return value
+        return "balanced"
+
+    @staticmethod
     def _normalize_visual_emotion(emotion: str) -> str:
         value = (emotion or "").strip().lower()
         allowed = {"happy", "sad", "angry", "fear", "neutral"}
@@ -490,6 +516,7 @@ def api_chat(payload: ChatRequest):
             message=payload.message,
             mode=payload.mode,
             provider=payload.provider,
+            speed_profile=payload.speed_profile,
             persona=payload.persona,
             visual_emotion=payload.visual_emotion,
             speak=payload.speak,

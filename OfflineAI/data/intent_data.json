@@ -129,6 +129,52 @@
             "description": "User wants to close an application"
         },
         {
+            "tag": "shutdown_pc",
+            "patterns": [
+                "shutdown pc",
+                "shut down pc",
+                "shutdown my computer",
+                "turn off my pc",
+                "power off my computer",
+                "shutdown laptop",
+                "turn off laptop",
+                "switch off pc",
+                "power off pc",
+                "shutdown now",
+                "shut down now",
+                "confirm shutdown",
+                "yes shutdown",
+                "pc shutdown pannu",
+                "computer shutdown pannu",
+                "laptop shutdown pannu",
+                "shutdown confirm",
+                "system shutdown pannu",
+                "pc off pannu",
+                "கம்ப்யூட்டர் ஆஃப் பண்ணு",
+                "பிசி ஷட் டவுன் பண்ணு",
+                "ஷட் டவுன் பண்ணு",
+                "இப்போ ஷட் டவுன் பண்ணு"
+            ],
+            "description": "User wants to shut down the PC"
+        },
+        {
+            "tag": "cancel_shutdown",
+            "patterns": [
+                "cancel shutdown",
+                "abort shutdown",
+                "stop shutdown",
+                "do not shutdown",
+                "don't shutdown",
+                "cancel power off",
+                "shutdown cancel pannu",
+                "cancel pannu shutdown",
+                "shutdown niruthu",
+                "ஷட் டவுன் cancel பண்ணு",
+                "ஷட் டவுன் நிறுத்து"
+            ],
+            "description": "User wants to cancel pending shutdown"
+        },
+        {
             "tag": "system_status",
             "patterns": [
                 "system status",

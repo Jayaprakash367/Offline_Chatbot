@@ -427,9 +427,12 @@ The project now includes a visual JARVIS runtime with:
 - Face-to-face UI with live camera preview
 - Procedural 3D avatar renderer with automatic fallback to 2D avatar
 - Animated male/female avatar with emotion-driven expressions
+- Interactive image portal with depth-tilt/parallax reaction to human movement
 - Tamil + English conversation flow
 - Camera-based visual emotion pipeline (OpenCV + optional FER model)
 - Offline + online model routing modes: `offline`, `online`, `hybrid`, `auto`
+- Speed profiles for response tuning: `turbo`, `balanced`, `quality`
+- Bilingual response optimizer with compact context windows + response cache
 - Optional desktop app mode via `pywebview`
 
 ### Run Modes
@@ -457,6 +460,11 @@ setx OPENAI_MODEL "gpt-4o-mini"
 # Ollama (local)
 setx OLLAMA_BASE_URL "http://127.0.0.1:11434"
 setx OLLAMA_MODEL "llama3.1"
+
+# Optional: force billion-model runtime path
+setx JARVIS_USE_BILLION_MODEL "1"
+setx JARVIS_BILLION_MODEL "jarvis-bilingual-1b"
+setx JARVIS_SPEED_PROFILE "balanced"
 ```
 
 Restart terminal after `setx` commands.
@@ -621,6 +629,50 @@ Yes! Possible extensions (without breaking offline constraint):
 
 ---
 
+## 14. Billion-Model Fine-Tuning (Tamil + English)
+
+You can train a compact bilingual Jarvis model (1B-3B range) using a memory-efficient QLoRA workflow.
+
+### Install training dependencies
+
+```bash
+pip install -r requirements_training.txt
+```
+
+### Prepare training data
+
+Use JSONL rows with this shape:
+
+```json
+{"user": "How are you?", "assistant": "I'm good.", "language": "en", "emotion": "happy"}
+```
+
+Starter data is available at:
+- `data/training_conversations.sample.jsonl`
+
+### Train a bilingual 1B model
+
+```bash
+python train_billion_jarvis.py \
+  --base-model Qwen/Qwen2.5-1.5B-Instruct \
+  --dataset data/training_conversations.sample.jsonl \
+  --output-dir models/jarvis-bilingual-1b \
+  --epochs 2
+```
+
+### Runtime integration
+
+After exporting your trained model for local runtime, point Jarvis to it with:
+
+```powershell
+setx JARVIS_USE_BILLION_MODEL "1"
+setx JARVIS_BILLION_MODEL "jarvis-bilingual-1b"
+```
+
+Jarvis will then prefer that model in online/Ollama path while still keeping low-latency fallback logic.
+
+---
+
 ## Project File Structure
 
 ```
@@ -630,9 +682,11 @@ OfflineAI/
 ├── config.py                        ← All constants & paths
 ├── requirements.txt                 ← Python dependencies
 ├── requirements_vision.txt          ← Optional FER/TensorFlow extras
+├── requirements_training.txt        ← Optional QLoRA training dependencies
 ├── build.py                         ← PyInstaller build script
 ├── build_jarvis.py                  ← Jarvis executable build script
 ├── build_installer.ps1              ← Inno Setup installer automation
+├── train_billion_jarvis.py          ← Billion-model bilingual fine-tuning script
 ├── README.md                        ← This documentation
 ├── __init__.py
 │
@@ -648,7 +702,8 @@ OfflineAI/
 │   ├── memory.py                    ← Module 8: Local persistence
 │   ├── voice_output.py              ← Module 9: Text → Speech
 │   ├── model_router.py              ← Module 10: Online model routing
-│   └── vision_emotion.py            ← Module 11: Camera emotion pipeline
+│   ├── vision_emotion.py            ← Module 11: Camera emotion pipeline
+│   └── bilingual_optimizer.py       ← Module 13: Fast bilingual optimization
 │
 ├── jarvis/
 │   └── static/
@@ -665,6 +720,7 @@ OfflineAI/
 │   ├── emotion_data.json            ← Emotion keywords (trainable)
 │   ├── responses.json               ← AI response templates
 │   ├── knowledge_base.json          ← Q&A knowledge (teachable)
+│   ├── training_conversations.sample.jsonl  ← Bilingual training sample
 │   └── user/
 │       └── memory.json              ← Per-user memory & history
 │

@@ -13,14 +13,13 @@
 from __future__ import annotations
 
 import os
-import re
+import time
 from dataclasses import dataclass
 from typing import Optional, Tuple
 
 import requests
 
-
-TAMIL_CHAR_RE = re.compile(r"[\u0B80-\u0BFF]")
+from modules.bilingual_optimizer import BilingualOptimizer
 
 
 @dataclass
@@ -46,12 +45,20 @@ class ModelRouter:
     def __init__(self, timeout: int = 25):
         self.timeout = timeout
         self.session = requests.Session()
+        self.optimizer = BilingualOptimizer()
 
         self.openai_api_key = os.getenv("OPENAI_API_KEY", "").strip()
         self.openai_model = os.getenv("OPENAI_MODEL", "gpt-4o-mini").strip()
 
         self.ollama_base_url = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434").strip().rstrip("/")
         self.ollama_model = os.getenv("OLLAMA_MODEL", "llama3.1").strip()
+        self.ollama_turbo_model = os.getenv("OLLAMA_TURBO_MODEL", self.ollama_model).strip()
+        self.billion_model = os.getenv("JARVIS_BILLION_MODEL", self.ollama_model).strip()
+        self.prefer_billion_model = os.getenv("JARVIS_USE_BILLION_MODEL", "0").strip() == "1"
+        self.default_speed_profile = self.optimizer.normalize_profile(
+            os.getenv("JARVIS_SPEED_PROFILE", "balanced")
+        )
+        self._ollama_health_cache = {"checked_at": 0.0, "ok": False}
 
     # -- public helpers -------------------------------------------------
 
@@ -68,13 +75,14 @@ class ModelRouter:
             "ollama": self._check_ollama_health(),
             "openai_model": self.openai_model,
             "ollama_model": self.ollama_model,
+            "billion_model": self.billion_model,
+            "prefer_billion_model": self.prefer_billion_model,
+            "default_speed_profile": self.default_speed_profile,
         }
 
     def language_hint(self, text: str) -> str:
         """Lightweight language hint for bilingual replies."""
-        if TAMIL_CHAR_RE.search(text or ""):
-            return "ta"
-        return "en"
+        return self.optimizer.detect_language(text)
 
     def generate_online_reply(
         self,
@@ -86,6 +94,7 @@ class ModelRouter:
         context_turns: Optional[list] = None,
         factual_context: str = "",
         response_style: str = "friendly",
+        speed_profile: str = "balanced",
     ) -> Tuple[Optional[OnlineResult], Optional[str]]:
         """
         Generate an online response.
@@ -97,12 +106,34 @@ class ModelRouter:
         if not user_text.strip():
             return (None, "empty_input")
 
+        profile = self.optimizer.normalize_profile(speed_profile or self.default_speed_profile)
+        profile_settings = self.optimizer.profile_settings(profile)
         lang = self.language_hint(user_text)
+        style_directive = self.optimizer.style_directive(lang, response_style)
         provider_chain = self._provider_chain(preferred_provider)
 
         # Use the last few conversation turns to improve continuity.
-        context_turns = context_turns or []
-        context_turns = context_turns[-5:]
+        context_turns = self.optimizer.compact_turns(context_turns or [], profile)
+        cache_key = self.optimizer.cache_key(
+            user_text=user_text,
+            emotion=emotion,
+            provider=preferred_provider,
+            persona=persona_name,
+            language=lang,
+            profile=profile,
+            factual_context=factual_context,
+        )
+        cached = self.optimizer.get_cached(cache_key)
+        if cached:
+            return (
+                OnlineResult(
+                    text=cached.get("text", ""),
+                    provider=cached.get("provider", "cached"),
+                    model=cached.get("model", "response-cache"),
+                    source="online-cache",
+                ),
+                None,
+            )
 
         for provider in provider_chain:
             if provider == "openai":
@@ -114,9 +145,16 @@ class ModelRouter:
                     persona_name=persona_name,
                     context_turns=context_turns,
                     factual_context=factual_context,
-                    response_style=response_style,
+                    style_directive=style_directive,
+                    profile_settings=profile_settings,
                 )
                 if result:
+                    self.optimizer.set_cached(
+                        key=cache_key,
+                        text=result.text,
+                        provider=result.provider,
+                        model=result.model,
+                    )
                     return (result, None)
                 if err in ("auth_missing", "provider_unavailable"):
                     continue
@@ -132,9 +170,17 @@ class ModelRouter:
                     persona_name=persona_name,
                     context_turns=context_turns,
                     factual_context=factual_context,
-                    response_style=response_style,
+                    style_directive=style_directive,
+                    profile_settings=profile_settings,
+                    speed_profile=profile,
                 )
                 if result:
+                    self.optimizer.set_cached(
+                        key=cache_key,
+                        text=result.text,
+                        provider=result.provider,
+                        model=result.model,
+                    )
                     return (result, None)
                 if err == "provider_unavailable":
                     continue
@@ -163,7 +209,8 @@ class ModelRouter:
         persona_name: str,
         context_turns: list,
         factual_context: str,
-        response_style: str,
+        style_directive: str,
+        profile_settings: dict,
     ) -> Tuple[Optional[OnlineResult], str]:
         if not self.openai_api_key:
             return (None, "auth_missing")
@@ -175,11 +222,9 @@ class ModelRouter:
             f"You are {persona_name}, a friendly futuristic assistant for a Windows desktop. "
             "Be clear, practical, and emotionally warm. "
             "Keep most responses between 1 and 6 short lines. "
-            "If user language appears Tamil, reply in Tamil or Tanglish naturally. "
-            "If user language appears English, reply in English. "
+            f"Language mode: {lang}. {style_directive} "
             "Detected user emotion is: "
             f"{emotion}. "
-            f"Response style target is: {response_style}. "
             "Prioritize factual correctness over creativity. "
             "If you are unsure about a fact, say that clearly instead of guessing. "
             "Never invent sources, numbers, or events. "
@@ -224,8 +269,8 @@ class ModelRouter:
         payload = {
             "model": self.openai_model,
             "messages": messages,
-            "temperature": 0.45,
-            "max_tokens": 400,
+            "temperature": profile_settings["temperature"],
+            "max_tokens": profile_settings["max_tokens"],
         }
 
         headers = {
@@ -253,6 +298,8 @@ class ModelRouter:
             if not text:
                 return (None, "empty_response")
 
+            text = self.optimizer.sanitize_reply(text)
+
             return (
                 OnlineResult(text=text, provider="openai", model=self.openai_model, source="online"),
                 "",
@@ -266,10 +313,17 @@ class ModelRouter:
 
     def _check_ollama_health(self) -> bool:
         """Best-effort health check for local Ollama server."""
+        now = time.time()
+        if now - self._ollama_health_cache["checked_at"] < 5.0:
+            return bool(self._ollama_health_cache["ok"])
+
         try:
             res = self.session.get(f"{self.ollama_base_url}/api/tags", timeout=2)
-            return res.status_code == 200
+            ok = res.status_code == 200
+            self._ollama_health_cache = {"checked_at": now, "ok": ok}
+            return ok
         except Exception:
+            self._ollama_health_cache = {"checked_at": now, "ok": False}
             return False
 
     def _ask_ollama(
@@ -281,17 +335,25 @@ class ModelRouter:
         persona_name: str,
         context_turns: list,
         factual_context: str,
-        response_style: str,
+        style_directive: str,
+        profile_settings: dict,
+        speed_profile: str,
     ) -> Tuple[Optional[OnlineResult], str]:
         if not self._check_ollama_health():
             return (None, "provider_unavailable")
 
         url = f"{self.ollama_base_url}/api/chat"
+        if speed_profile == "turbo":
+            selected_model = self.ollama_turbo_model
+        elif self.prefer_billion_model:
+            selected_model = self.billion_model
+        else:
+            selected_model = self.ollama_model
 
         system_prompt = (
             f"You are {persona_name}, a friendly assistant running locally on Windows. "
-            f"Detected user emotion is {emotion}. Respond in {'Tamil/Tanglish' if lang == 'ta' else 'English'} "
-            f"with practical and empathetic tone. Response style target is: {response_style}. "
+            f"Detected user emotion is {emotion}. "
+            f"Language mode: {lang}. {style_directive} "
             "Keep responses concise and useful. "
             "Prioritize factual correctness. If not sure, say you are not sure and avoid guesses."
         )
@@ -329,11 +391,12 @@ class ModelRouter:
         messages.append({"role": "user", "content": user_text})
 
         payload = {
-            "model": self.ollama_model,
+            "model": selected_model,
             "stream": False,
             "messages": messages,
             "options": {
-                "temperature": 0.45,
+                "temperature": profile_settings["temperature"],
+                "num_predict": profile_settings["max_tokens"],
             },
         }
 
@@ -347,8 +410,10 @@ class ModelRouter:
             if not text:
                 return (None, "empty_response")
 
+            text = self.optimizer.sanitize_reply(text)
+
             return (
-                OnlineResult(text=text, provider="ollama", model=self.ollama_model, source="online"),
+                OnlineResult(text=text, provider="ollama", model=selected_model, source="online"),
                 "",
             )
         except requests.RequestException:
