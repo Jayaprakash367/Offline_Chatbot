@@ -5,9 +5,6 @@ import os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 
-# ─────────────────────────────────────────────
-# 1. intent_data.json
-# ─────────────────────────────────────────────
 intent_data = {
     "intents": [
         {
