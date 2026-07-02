@@ -4,7 +4,6 @@ import json
 import os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-
 intent_data = {
     "intents": [
         {
@@ -528,8 +527,7 @@ knowledge_data = {
         }
     ]
 }
-
-# ─────────────────────────────────────────────
+# ────────────────────────────────────────────
 # Write all files
 # ─────────────────────────────────────────────
 data_dir = os.path.join(BASE, "data")
