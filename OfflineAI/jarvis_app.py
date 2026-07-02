@@ -10,9 +10,7 @@
     - Emotion-aware replies and command execution
 =============================================================
 """
-
 from __future__ import annotations
-
 import argparse
 import os
 import re
@@ -22,7 +20,6 @@ import threading
 import time
 import webbrowser
 from typing import Optional
-
 import requests
 import uvicorn
 from fastapi import FastAPI, HTTPException
@@ -35,7 +32,7 @@ from pydantic import BaseModel, Field
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
-
+  
 from config import APP_VERSION
 from modules.command_executor import CommandExecutor
 from modules.decision_engine import DecisionEngine
